@@ -1,0 +1,12 @@
+{
+  "name": "ai-tool-finder",
+  "version": "1.0.0",
+  "description": "Programmatic SEO directory comparing AI tools — chatbots, writing, image, video, coding, and more.",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "serve": "node scripts/serve.js"
+  },
+  "license": "MIT"
+}
