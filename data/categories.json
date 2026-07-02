@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "chatbots",
+    "name": "AI Chatbots & Assistants",
+    "description": "Conversational AI assistants for answering questions, research, coding help, and everyday productivity."
+  },
+  {
+    "slug": "writing",
+    "name": "AI Writing Tools",
+    "description": "Tools that help you draft, edit, and improve blog posts, emails, marketing copy, and long-form content."
+  },
+  {
+    "slug": "image-generation",
+    "name": "AI Image Generators",
+    "description": "Turn text prompts into original images, art, and design assets in seconds."
+  },
+  {
+    "slug": "video-generation",
+    "name": "AI Video Generators",
+    "description": "Create, edit, and enhance video content using AI — from text-to-video to auto-editing."
+  },
+  {
+    "slug": "voice-audio",
+    "name": "AI Voice & Audio Tools",
+    "description": "Text-to-speech, voice cloning, and audio editing tools powered by AI."
+  },
+  {
+    "slug": "coding",
+    "name": "AI Coding Assistants",
+    "description": "AI pair-programmers that autocomplete, explain, and help debug code inside your editor."
+  },
+  {
+    "slug": "productivity",
+    "name": "AI Productivity Tools",
+    "description": "AI-powered note-taking, meeting summaries, and workspace organization tools."
+  },
+  {
+    "slug": "research",
+    "name": "AI Research & Search",
+    "description": "AI-powered search and research assistants that cite sources and summarize information."
+  }
+]
