@@ -1,0 +1,214 @@
+---
+// ============================================================================
+// tools/[slug].astro
+// ----------------------------------------------------------------------------
+// The individual tool review page — the core content unit of the whole
+// site. One of these is generated per entry in src/data/tools.json via
+// getStaticPaths(), so adding a tool to the JSON automatically creates a
+// fully-formed review page with zero extra template work.
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ToolCard from "../../components/ToolCard.astro";
+import ToolLogo from "../../components/ToolLogo.astro";
+import AdSlot from "../../components/AdSlot.astro";
+import AdsterraNative from "../../components/AdsterraNative.astro";
+import AdsterraBanner from "../../components/AdsterraBanner.astro";
+import AdSidebar from "../../components/AdSidebar.astro";
+import Icon from "../../components/Icon.astro";
+import CategoryBanner from "../../components/CategoryBanner.astro";
+import { tools, categoryBySlug, relatedTools, outboundLink } from "../../lib/data";
+import { formatLastUpdated } from "../../lib/format";
+import { SITE } from "../../lib/site";
+
+// Astro calls this at build time to know which /tools/[slug]/ pages to
+// generate — one per tool in the dataset.
+export function getStaticPaths() {
+  return tools.map((tool) => ({
+    params: { slug: tool.slug },
+    props: { tool },
+  }));
+}
+
+const { tool } = Astro.props;
+const alternatives = relatedTools(tool, 4);
+const primaryCategory = categoryBySlug[tool.categories[0]];
+
+const title = `${tool.name} Review 2026: Pricing, Pros & Cons — ${SITE.name}`;
+const description = `${tool.tagline} See pricing, pros, cons, and the best alternatives to ${tool.name}.`;
+
+// SoftwareApplication structured data — helps this page qualify for
+// software-related rich results in Google Search.
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: tool.name,
+    applicationCategory: primaryCategory?.name || "AI Tool",
+    description: tool.tagline,
+    url: tool.website,
+    offers: {
+      "@type": "Offer",
+      price: tool.hasFreeTier ? "0" : undefined,
+      priceCurrency: "USD",
+    },
+  },
+];
+---
+
+<Layout title={title} description={description} path={`/tools/${tool.slug}/`} jsonLd={jsonLd}>
+  <Breadcrumbs
+    crumbs={[
+      { name: "Home", path: "/" },
+      { name: "All Tools", path: "/tools/" },
+      { name: tool.name, path: `/tools/${tool.slug}/` },
+    ]}
+  />
+
+  <!-- Two-column layout on large screens: main content + a sticky sidebar
+       ad. The sidebar is hidden entirely below the lg breakpoint (see
+       AdSidebar.astro), so this gracefully collapses to the original
+       single-column layout on mobile and tablet. -->
+  <div class="mx-auto flex max-w-5xl gap-8 px-5 py-10">
+  <article class="min-w-0 max-w-3xl flex-1">
+    <!-- Category illustration banner — real, original imagery representing
+         this tool's primary category (see CategoryBanner.astro for why this
+         approach was used instead of logos or stock photos). Renders
+         nothing if that category doesn't have an image yet. -->
+    <CategoryBanner category={primaryCategory} class="mb-6 aspect-[21/9] w-full" />
+
+    <!-- Header: logo badge + name + category chips -->
+    <div class="mb-5 flex items-center gap-4">
+      <ToolLogo name={tool.name} slug={tool.slug} class="h-14 w-14 text-xl" />
+      <div>
+        <div class="flex flex-wrap gap-2 text-xs text-neutral-500">
+          {
+            tool.categories.map((cs) => (
+              <a href={`/categories/${cs}/`} class="rounded-full border border-neutral-200 px-2.5 py-0.5 hover:border-neutral-400">
+                {categoryBySlug[cs]?.name}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <h1 class="mb-3 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+      {tool.name} Review (2026): Pricing, Features &amp; Alternatives
+    </h1>
+    <p class="mb-6 text-lg text-neutral-600">{tool.tagline}</p>
+
+    {
+      // Shown as a natural relative phrase ("Updated today", "Updated 3
+      // weeks ago", etc.) rather than a raw date — see formatLastUpdated()
+      // for why this stays honest rather than just always saying "today".
+      // The exact ISO date is still available on hover via the title
+      // attribute, so nothing is hidden, just phrased more naturally.
+      tool.lastUpdated && (
+        <p
+          class="mb-6 flex items-center gap-1.5 text-xs text-neutral-400"
+          title={`Last reviewed on ${tool.lastUpdated}`}
+        >
+          <Icon name="document" class="h-3.5 w-3.5" />
+          {formatLastUpdated(tool.lastUpdated)}
+        </p>
+      )
+    }
+
+    <!-- Primary outbound call-to-action. rel="sponsored" per FTC / Google
+         guidance for affiliate or monetized outbound links. -->
+    <a
+      href={outboundLink(tool)}
+      target="_blank"
+      rel="nofollow sponsored noopener"
+      class="mb-8 inline-flex items-center gap-2 rounded-md bg-neutral-950 px-5 py-3 font-medium text-white transition hover:bg-neutral-800"
+    >
+      Visit {tool.name}
+      <Icon name="external-link" class="h-4 w-4" />
+    </a>
+
+    <!-- Key facts table -->
+    <table class="mb-8 w-full border-collapse overflow-hidden rounded-lg border border-neutral-200 text-sm">
+      <tbody>
+        <tr class="border-b border-neutral-200">
+          <th class="w-40 bg-neutral-50 p-3 text-left font-medium text-neutral-500">Maker</th>
+          <td class="p-3 text-neutral-800">{tool.maker}</td>
+        </tr>
+        <tr class="border-b border-neutral-200">
+          <th class="bg-neutral-50 p-3 text-left font-medium text-neutral-500">Pricing</th>
+          <td class="p-3 text-neutral-800">{tool.pricing}</td>
+        </tr>
+        <tr>
+          <th class="bg-neutral-50 p-3 text-left font-medium text-neutral-500">Free tier</th>
+          <td class="p-3 text-neutral-800">{tool.hasFreeTier ? "Yes" : "No"}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <AdSlot slot="in-content" />
+
+    <h2 class="mb-3 mt-8 text-xl font-semibold text-neutral-950">Best for</h2>
+    <p class="mb-8 text-neutral-700">{tool.bestFor}</p>
+
+    <!-- Pros / cons, each with a monochrome check or x-mark icon instead of
+         colored emoji or icons, per the site's no-color-icon design rule. -->
+    <div class="mb-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div>
+        <h3 class="mb-3 font-medium text-neutral-950">Pros</h3>
+        <ul class="space-y-2.5 text-sm text-neutral-700">
+          {
+            tool.pros.map((p) => (
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-neutral-400" />
+                {p}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 font-medium text-neutral-950">Cons</h3>
+        <ul class="space-y-2.5 text-sm text-neutral-700">
+          {
+            tool.cons.map((c) => (
+              <li class="flex items-start gap-2">
+                <Icon name="x-mark" class="mt-0.5 h-4 w-4 shrink-0 text-neutral-400" />
+                {c}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <AdsterraNative />
+
+    <!-- Alternatives — auto-computed from shared categories, not manually
+         curated per tool, so this stays correct as the dataset grows. -->
+    {
+      alternatives.length > 0 && (
+        <>
+          <h2 class="mb-4 mt-10 text-xl font-semibold text-neutral-950">Alternatives to {tool.name}</h2>
+          <div class="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {alternatives.map((a) => (
+              <ToolCard tool={a} />
+            ))}
+          </div>
+          <a href={`/alternatives/${tool.slug}/`} class="inline-flex items-center gap-1 text-sm text-neutral-700 hover:text-neutral-950">
+            See all alternatives to {tool.name}
+            <Icon name="arrow-right" class="h-3.5 w-3.5" />
+          </a>
+        </>
+      )
+    }
+
+    <!-- End-of-article ad placement: shown once the reader has already
+         gotten the full review and alternatives, so it never interrupts
+         the actual content. -->
+    <div class="mt-10">
+      <AdsterraBanner size="300x250" />
+    </div>
+  </article>
+  <AdSidebar />
+  </div>
+</Layout>

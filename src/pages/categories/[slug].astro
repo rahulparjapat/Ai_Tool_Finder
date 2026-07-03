@@ -1,0 +1,69 @@
+---
+// ============================================================================
+// categories/[slug].astro
+// ----------------------------------------------------------------------------
+// "Best [Category] in 2026" listicle page — one generated per entry in
+// src/data/categories.json, listing every tool tagged with that category.
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ToolCard from "../../components/ToolCard.astro";
+import AdSlot from "../../components/AdSlot.astro";
+import Icon from "../../components/Icon.astro";
+import CategoryBanner from "../../components/CategoryBanner.astro";
+import { categories, toolsInCategory } from "../../lib/data";
+import { SITE } from "../../lib/site";
+
+export function getStaticPaths() {
+  return categories.map((category) => ({
+    params: { slug: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+const list = toolsInCategory(category.slug);
+
+const title = `Best ${category.name} in 2026 — ${SITE.name}`;
+const description = `Compare the best ${category.name.toLowerCase()} in 2026. ${category.description}`;
+
+// ItemList structured data lets Google understand this page is a ranked
+// list of named items (the tools), which can help it qualify for list-style
+// rich results.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: `Best ${category.name}`,
+  itemListElement: list.map((t, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: t.name,
+    url: new URL(`/tools/${t.slug}/`, SITE.url).toString(),
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/categories/${category.slug}/`} jsonLd={jsonLd}>
+  <Breadcrumbs
+    crumbs={[
+      { name: "Home", path: "/" },
+      { name: "Categories", path: "/categories/" },
+      { name: category.name, path: `/categories/${category.slug}/` },
+    ]}
+  />
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <CategoryBanner category={category} class="mb-8 aspect-[21/9] w-full" />
+
+    <div class="mb-3 flex items-center gap-3">
+      <Icon name={category.icon} class="h-7 w-7 text-neutral-500" />
+      <h1 class="text-3xl font-semibold text-neutral-950">Best {category.name} (2026)</h1>
+    </div>
+    <p class="mb-8 max-w-2xl text-neutral-600">{category.description}</p>
+
+    <AdSlot slot="in-content" />
+
+    <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {list.map((t) => <ToolCard tool={t} />)}
+    </div>
+  </section>
+</Layout>

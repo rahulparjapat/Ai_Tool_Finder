@@ -1,0 +1,35 @@
+---
+// ============================================================================
+// contact.astro
+// ----------------------------------------------------------------------------
+// Simple, static contact page. No form/backend is wired up (that would
+// require a server or a third-party form service) — a mailto link is the
+// $0, zero-infrastructure option and is sufficient for a site at this stage.
+// ============================================================================
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import Icon from "../components/Icon.astro";
+import { SITE } from "../lib/site";
+
+const title = `Contact — ${SITE.name}`;
+const description = `Get in touch with the ${SITE.name} team.`;
+
+const CONTACT_EMAIL = "call56754@gmail.com";
+---
+
+<Layout title={title} description={description} path="/contact/">
+  <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact/" }]} />
+  <article class="mx-auto max-w-3xl px-5 py-10">
+    <h1 class="mb-6 text-3xl font-semibold text-neutral-950">Contact Us</h1>
+    <div class="space-y-4 text-neutral-700">
+      <p>Have a correction, a tool suggestion, or a partnership inquiry? We'd love to hear from you.</p>
+      <p class="flex items-center gap-2">
+        <Icon name="mail" class="h-5 w-5 text-neutral-400" />
+        <a href={`mailto:${CONTACT_EMAIL}`} class="text-neutral-950 underline underline-offset-2">
+          {CONTACT_EMAIL}
+        </a>
+      </p>
+      <p>We aim to respond to corrections and factual updates within a few business days.</p>
+    </div>
+  </article>
+</Layout>

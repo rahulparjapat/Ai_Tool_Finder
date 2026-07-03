@@ -1,0 +1,40 @@
+---
+// ============================================================================
+// compare/index.astro
+// ----------------------------------------------------------------------------
+// Index of every auto-generated "X vs Y" comparison page. With 100+ tools in
+// the dataset this list is long by design — it's primarily an internal
+// linking / crawlability aid for search engines, not a page most human
+// visitors browse top-to-bottom.
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { allComparePairs, compareSlug } from "../../lib/data";
+import { SITE } from "../../lib/site";
+
+const pairs = allComparePairs();
+const title = `AI Tool Comparisons — ${SITE.name}`;
+const description = "Head-to-head comparisons between popular AI tools — pricing, features, and which one wins for your use case.";
+---
+
+<Layout title={title} description={description} path="/compare/">
+  <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "Compare", path: "/compare/" }]} />
+  <section class="mx-auto max-w-4xl px-5 py-10">
+    <h1 class="mb-2 text-3xl font-semibold text-neutral-950">AI Tool Comparisons</h1>
+    <p class="mb-8 text-neutral-500">{pairs.length} head-to-head comparisons, generated from tools that share a category.</p>
+    <ul class="divide-y divide-neutral-200 rounded-lg border border-neutral-200">
+      {
+        pairs.map(({ a, b }) => (
+          <li>
+            <a
+              href={`/compare/${compareSlug(a, b)}/`}
+              class="block px-5 py-3.5 text-sm text-neutral-700 hover:bg-neutral-50 hover:text-neutral-950"
+            >
+              {a.name} vs {b.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

@@ -1,0 +1,62 @@
+---
+// ============================================================================
+// Layout.astro
+// ----------------------------------------------------------------------------
+// The single shared page shell: <head> tags (via SEO.astro), analytics,
+// the AdSense loader script, header, footer, and the cookie-consent banner.
+// Every page in src/pages/ wraps its content in this layout so the overall
+// site chrome (and every SEO/legal/ad requirement) stays consistent
+// automatically, without each page having to remember to include it.
+// ============================================================================
+import "../styles/global.css";
+import SEO from "../components/SEO.astro";
+import Analytics from "../components/Analytics.astro";
+import IdentityWidget from "../components/IdentityWidget.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ConsentBanner from "../components/ConsentBanner.astro";
+import AdsterraTopBanner from "../components/AdsterraTopBanner.astro";
+import MonetagServiceWorker from "../components/MonetagServiceWorker.astro";
+import { SITE } from "../lib/site";
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, path, image, noindex, jsonLd } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SEO title={title} description={description} path={path} image={image} noindex={noindex} jsonLd={jsonLd} />
+    <Analytics />
+    <IdentityWidget />
+
+    <!-- AdSense global loader script. Safe to include on every page; actual
+         ad units only render where an <AdSlot adUnitId="..."> is placed
+         with a real unit ID configured. -->
+    <script
+      is:inline
+      async
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-${SITE.adsensePublisherId}`}
+      crossorigin="anonymous"></script>
+  </head>
+  <body class="flex min-h-screen flex-col bg-white text-neutral-900 antialiased">
+    <Header />
+    <AdsterraTopBanner />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <ConsentBanner />
+    <MonetagServiceWorker />
+  </body>
+</html>

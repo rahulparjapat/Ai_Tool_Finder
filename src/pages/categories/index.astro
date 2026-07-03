@@ -1,0 +1,37 @@
+---
+// ============================================================================
+// categories/index.astro
+// ----------------------------------------------------------------------------
+// Lists every category defined in src/data/categories.json, each linking to
+// its own /categories/[slug]/ listicle page.
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Icon from "../../components/Icon.astro";
+import { categories, toolsInCategory } from "../../lib/data";
+import { SITE } from "../../lib/site";
+
+const title = `AI Tool Categories — ${SITE.name}`;
+const description = "Browse every AI tool category we cover: chatbots, writing, image generation, video, coding, and more.";
+---
+
+<Layout title={title} description={description} path="/categories/">
+  <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "Categories", path: "/categories/" }]} />
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h1 class="mb-8 text-3xl font-semibold text-neutral-950">AI Tool Categories</h1>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        categories.map((c) => (
+          <a href={`/categories/${c.slug}/`} class="card flex items-start gap-4 p-5">
+            <Icon name={c.icon} class="h-6 w-6 shrink-0 text-neutral-500" />
+            <div>
+              <h2 class="mb-1 font-medium text-neutral-950">{c.name}</h2>
+              <p class="mb-2 text-sm text-neutral-500">{c.description}</p>
+              <span class="text-xs text-neutral-400">{toolsInCategory(c.slug).length} tools</span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,80 @@
+---
+// ============================================================================
+// SEO.astro
+// ----------------------------------------------------------------------------
+// Renders every <head> tag needed for search engines and social sharing:
+// title, meta description, canonical URL, Open Graph, Twitter Card, and any
+// JSON-LD structured data the calling page provides. Centralizing this in
+// one component guarantees every page on the site gets a consistent, complete
+// set of SEO tags without each page having to remember every detail.
+// ============================================================================
+import { SITE } from "../lib/site";
+
+interface Props {
+  /** Page <title> — keep under ~60 characters for search results. */
+  title: string;
+  /** Meta description — aim for 140-160 characters. */
+  description: string;
+  /** Path relative to the site root, e.g. "/tools/chatgpt/". */
+  path: string;
+  /** Optional social-share image; falls back to the sitewide default. */
+  image?: string;
+  /** Set true to tell search engines not to index this page (e.g. 404). */
+  noindex?: boolean;
+  /** One or more JSON-LD structured data objects for this page. */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, path, image, noindex = false, jsonLd } = Astro.props;
+
+// Resolve relative paths against the configured site URL so canonical/OG
+// tags are always absolute, as required by search engines and social
+// platforms. Note: `canonical` always points at SITE.url (the Netlify
+// domain) even when this page is actually being built for the Cloudflare
+// Pages secondary deployment — that's deliberate, see SITE.isSecondaryDeployment.
+const canonical = new URL(path, SITE.url).toString();
+const ogImage = new URL(image || SITE.defaultOgImage, SITE.url).toString();
+
+// Allow callers to pass either a single JSON-LD object or an array of them.
+const jsonLdList = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+
+// Force noindex sitewide when this build is the Cloudflare Pages secondary
+// deployment (see SITE.isSecondaryDeployment in site.ts) — this is a second,
+// belt-and-suspenders layer on top of robots.txt.ts's Disallow rule, since
+// some crawlers respect meta robots tags even if they mishandle robots.txt.
+const shouldNoindex = noindex || SITE.isSecondaryDeployment;
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta name="robots" content={shouldNoindex ? "noindex, nofollow" : "index, follow"} />
+
+<!-- Open Graph tags — control how the page looks when shared on
+     Facebook, LinkedIn, Slack, WhatsApp, etc. -->
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+
+<!-- Twitter/X Card tags — separate from Open Graph because Twitter/X
+     reads its own tag set rather than falling back to OG tags in all cases. -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+{SITE.twitterHandle && <meta name="twitter:site" content={SITE.twitterHandle} />}
+
+<!-- Favicons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+<!-- Structured data (JSON-LD) — helps Google/Bing understand page content
+     for rich results (e.g. breadcrumb trails, software listings). -->
+{
+  jsonLdList.map((entry) => (
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(entry)} />
+  ))
+}

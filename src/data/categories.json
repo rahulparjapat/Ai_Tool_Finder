@@ -1,0 +1,116 @@
+{
+  "categories": [
+    {
+      "slug": "chatbots",
+      "name": "AI Chatbots & Assistants",
+      "icon": "chat",
+      "image": "/images/categories/chatbots.png",
+      "description": "General-purpose conversational AI assistants for questions, research, brainstorming, and everyday tasks."
+    },
+    {
+      "slug": "writing",
+      "name": "AI Writing & Content Tools",
+      "icon": "pencil",
+      "image": "/images/categories/writing.png",
+      "description": "Tools that help you draft, edit, and improve blog posts, emails, marketing copy, and long-form content."
+    },
+    {
+      "slug": "image-generation",
+      "name": "AI Image Generators",
+      "icon": "image",
+      "image": "/images/categories/image-generation.png",
+      "description": "Turn text prompts into original images, art, product shots, and design assets in seconds."
+    },
+    {
+      "slug": "video-generation",
+      "name": "AI Video Generators",
+      "icon": "video",
+      "image": "/images/categories/video-generation.png",
+      "description": "Create, edit, and enhance video content using AI — from text-to-video to AI avatars and auto-editing."
+    },
+    {
+      "slug": "voice-audio",
+      "name": "AI Voice & Audio Tools",
+      "icon": "microphone",
+      "image": "/images/categories/voice-audio.png",
+      "description": "Text-to-speech, voice cloning, AI music generation, and audio editing tools."
+    },
+    {
+      "slug": "coding",
+      "name": "AI Coding Assistants",
+      "icon": "code",
+      "image": "/images/categories/coding.png",
+      "description": "AI pair-programmers and agentic coding tools that write, explain, and debug code."
+    },
+    {
+      "slug": "productivity",
+      "name": "AI Productivity & Meeting Tools",
+      "icon": "briefcase",
+      "image": "/images/categories/productivity.png",
+      "description": "AI-powered meeting notes, scheduling, task management, and workspace organization tools."
+    },
+    {
+      "slug": "research",
+      "name": "AI Research & Search Tools",
+      "icon": "search",
+      "image": "/images/categories/research.png",
+      "description": "AI-powered search and research assistants that synthesize information and cite sources."
+    },
+    {
+      "slug": "seo-marketing",
+      "name": "AI SEO & Marketing Tools",
+      "icon": "megaphone",
+      "image": "/images/categories/seo-marketing.png",
+      "description": "AI tools for keyword research, content optimization, and organic search growth."
+    },
+    {
+      "slug": "app-builders",
+      "name": "AI App & Website Builders",
+      "icon": "cube",
+      "image": "/images/categories/app-builders.png",
+      "description": "Describe an app in plain English and get a working full-stack product or website."
+    },
+    {
+      "slug": "design",
+      "name": "AI Design & UI Tools",
+      "icon": "swatch",
+      "description": "AI-assisted interface design, wireframing, and product design tools.",
+      "image": "/images/categories/design.png"
+    },
+    {
+      "slug": "automation",
+      "name": "AI Automation & Workflow Tools",
+      "icon": "workflow",
+      "description": "Connect apps and automate repetitive tasks with AI-assisted workflow builders.",
+      "image": "/images/categories/automation.png"
+    },
+    {
+      "slug": "presentations",
+      "name": "AI Presentation Makers",
+      "icon": "presentation",
+      "description": "Generate polished slide decks and presentations from an outline or a single prompt.",
+      "image": "/images/categories/presentations.png"
+    },
+    {
+      "slug": "customer-support",
+      "name": "AI Customer Support Tools",
+      "icon": "headset",
+      "description": "AI chatbots and helpdesk copilots that resolve customer questions automatically.",
+      "image": "/images/categories/customer-support.png"
+    },
+    {
+      "slug": "education",
+      "name": "AI Education & Learning Tools",
+      "icon": "academic-cap",
+      "description": "AI tutors and study tools that personalize learning and homework help.",
+      "image": "/images/categories/education.png"
+    },
+    {
+      "slug": "sales-crm",
+      "name": "AI Sales & CRM Tools",
+      "icon": "currency",
+      "description": "AI-powered prospecting, CRM automation, and sales conversation intelligence.",
+      "image": "/images/categories/sales-crm.png"
+    }
+  ]
+}

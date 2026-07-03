@@ -1,12 +1,24 @@
 {
   "name": "ai-tool-finder",
-  "version": "1.0.0",
-  "description": "Programmatic SEO directory comparing AI tools — chatbots, writing, image, video, coding, and more.",
-  "private": true,
-  "type": "commonjs",
-  "scripts": {
-    "build": "node scripts/build.js",
-    "serve": "node scripts/serve.js"
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
   },
-  "license": "MIT"
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "astro": "^7.0.5",
+    "tailwindcss": "^4.3.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@tailwindcss/typography": "^0.5.20",
+    "typescript": "^6.0.3"
+  }
 }

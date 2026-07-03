@@ -1,0 +1,43 @@
+---
+// ============================================================================
+// CategoryBanner.astro
+// ----------------------------------------------------------------------------
+// Renders the original, AI-generated illustration for a category as a
+// banner image — shown on that category's own listing page, and on every
+// individual tool page within it (so every tool page carries real,
+// licensed-to-this-site imagery instead of a fake logo or a mismatched
+// generic stock photo).
+//
+// Why not real photos or logos: see the "Why there are no real company
+// logos" section in PROJECT_OVERVIEW.md — the same reasoning applies to
+// stock photography here. Free stock libraries don't have meaningful,
+// distinct photography per AI tool, and paid/attributed stock (Getty, etc.)
+// isn't usable without a license. Original illustrations avoid both
+// problems and keep every image on the site visually consistent.
+//
+// Categories whose illustration hasn't been generated yet simply render
+// nothing here — no broken image icon, no layout shift.
+// ============================================================================
+import type { Category } from "../lib/data";
+
+interface Props {
+  category: Category;
+  /** Tailwind sizing/aspect classes for the image container. */
+  class?: string;
+}
+
+const { category, class: className = "aspect-[21/9] w-full" } = Astro.props;
+---
+
+{
+  category.image && (
+    <div class={`overflow-hidden rounded-xl border border-neutral-200 bg-neutral-50 ${className}`}>
+      <img
+        src={category.image}
+        alt={`Illustration representing ${category.name}`}
+        class="h-full w-full object-cover"
+        loading="lazy"
+      />
+    </div>
+  )
+}

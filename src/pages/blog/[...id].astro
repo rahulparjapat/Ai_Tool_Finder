@@ -1,0 +1,74 @@
+---
+// ============================================================================
+// blog/[...id].astro
+// ----------------------------------------------------------------------------
+// Renders a single blog post's Markdown content. Uses Astro's Content
+// Collections (see src/content.config.ts) for type-checked frontmatter.
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import AdSlot from "../../components/AdSlot.astro";
+import AdsterraNative from "../../components/AdsterraNative.astro";
+import AdsterraBanner from "../../components/AdsterraBanner.astro";
+import AdSidebar from "../../components/AdSidebar.astro";
+import { getCollection, render } from "astro:content";
+import { SITE } from "../../lib/site";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const title = `${post.data.title} — ${SITE.name}`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.publishDate,
+  dateModified: post.data.updatedDate || post.data.publishDate,
+};
+---
+
+<Layout title={title} description={post.data.description} path={`/blog/${post.id}/`} jsonLd={jsonLd}>
+  <Breadcrumbs
+    crumbs={[
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog/" },
+      { name: post.data.title, path: `/blog/${post.id}/` },
+    ]}
+  />
+  <div class="mx-auto flex max-w-5xl gap-8 px-5 py-10">
+  <article class="min-w-0 max-w-3xl flex-1">
+    <h1 class="mb-2 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">{post.data.title}</h1>
+    <p class="mb-8 text-xs text-neutral-400">
+      Published {post.data.publishDate}
+      {post.data.updatedDate && ` · Updated ${post.data.updatedDate}`}
+    </p>
+
+    <!-- prose-neutral keeps the Markdown typography strictly grayscale,
+         matching the site's no-color design instead of Tailwind Typography's
+         default (which tints links etc. with an accent color). -->
+    <div class="prose prose-neutral max-w-none prose-a:text-neutral-950 prose-a:underline">
+      <Content />
+    </div>
+
+    <AdsterraNative />
+    <AdSlot slot="in-content" />
+
+    <!-- End-of-article ad placement, shown after the reader has finished
+         the post rather than interrupting it. -->
+    <div class="mt-10">
+      <AdsterraBanner size="300x250" />
+    </div>
+  </article>
+  <AdSidebar />
+  </div>
+</Layout>

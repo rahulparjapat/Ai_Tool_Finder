@@ -1,0 +1,28 @@
+---
+// ============================================================================
+// tools/index.astro
+// ----------------------------------------------------------------------------
+// The full directory of every tool on the site, one card per tool. This is
+// mainly a discovery/internal-linking page — most organic traffic will land
+// on individual /tools/[slug]/ pages instead.
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ToolCard from "../../components/ToolCard.astro";
+import { tools } from "../../lib/data";
+import { SITE } from "../../lib/site";
+
+const title = `All AI Tools — ${SITE.name}`;
+const description = "Browse the full directory of AI tools we've reviewed, across chatbots, writing, image, video, coding, and productivity.";
+---
+
+<Layout title={title} description={description} path="/tools/">
+  <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "All Tools", path: "/tools/" }]} />
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h1 class="mb-2 text-3xl font-semibold text-neutral-950">All AI Tools</h1>
+    <p class="mb-8 text-neutral-500">{tools.length} tools reviewed and compared.</p>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {tools.map((t) => <ToolCard tool={t} />)}
+    </div>
+  </section>
+</Layout>

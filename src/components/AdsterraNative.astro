@@ -1,0 +1,30 @@
+---
+// ============================================================================
+// AdsterraNative.astro
+// ----------------------------------------------------------------------------
+// Renders Adsterra's "Native Banner" ad unit — a self-sizing ad that blends
+// into surrounding content rather than a fixed iframe size. Placed inside
+// the main content column on select pages (not sitewide) to balance
+// monetization against page speed and a clean reading experience.
+//
+// Why this loads safely:
+//   - The script tag is `async`, so it never blocks the page from
+//     rendering or delays Core Web Vitals (LCP/FID/CLS) while it loads.
+//   - It renders into a dedicated <div id="container-..."> rather than
+//     using document.write, so it can't break page layout the way older
+//     ad network scripts sometimes do.
+//   - A fixed-height wrapper reserves space before the ad loads, so it
+//     doesn't cause layout shift (CLS) once it does.
+//
+// This is a separate component from AdSlot.astro (which is AdSense-only)
+// because Adsterra and AdSense are two independent networks with their own
+// script/markup formats — keeping them in separate components means either
+// network can be added, removed, or swapped without touching the other.
+// ============================================================================
+---
+
+<div class="ad-slot ad-slot--native my-8 flex min-h-[100px] w-full justify-center">
+  <div id="container-176d1a0c8f2aeed54b5a122e9c64b94f" class="w-full max-w-2xl"></div>
+</div>
+
+<script is:inline async data-cfasync="false" src="https://pl30187697.effectivecpmnetwork.com/176d1a0c8f2aeed54b5a122e9c64b94f/invoke.js"></script>

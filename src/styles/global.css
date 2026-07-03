@@ -1,0 +1,55 @@
+/* ============================================================================
+   global.css
+   ----------------------------------------------------------------------------
+   Site-wide styles. Loads Tailwind + the typography plugin (used for the
+   blog's long-form Markdown content), then layers a small set of custom
+   utility classes for things Tailwind doesn't give us out of the box
+   (e.g. a reusable "card" style, line-clamping, focus rings).
+
+   Design direction: a clean, minimalist, WHITE-background theme with a
+   single neutral gray scale + one accent color, and no colored icons
+   anywhere (icons always use `currentColor`, see Icon.astro).
+   ========================================================================== */
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Base page styling: white background, dark neutral text, a plain
+   system font stack (no external font request = faster, $0-cost). */
+body {
+  background-color: #ffffff;
+  color: #171717; /* neutral-900 */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Reusable "card" style used across tool cards, category cards, etc.
+   Kept as a plain CSS class (rather than repeating long Tailwind
+   strings everywhere) so the visual style stays consistent and is
+   easy to tweak from one place. */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5; /* neutral-200 */
+  border-radius: 0.75rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  border-color: #a3a3a3; /* neutral-400 */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* Consistent focus states for keyboard accessibility, in the neutral
+   palette (no bright accent-colored ring, keeping the monochrome feel). */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #171717;
+  outline-offset: 2px;
+}
+
+/* Clamp long descriptions to a fixed number of lines on card grids,
+   so cards line up cleanly regardless of content length. */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

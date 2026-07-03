@@ -1,0 +1,62 @@
+---
+// ============================================================================
+// MonetagServiceWorker.astro
+// ----------------------------------------------------------------------------
+// Registers the Monetag push-notification ad Service Worker (public/sw.js)
+// on every page.
+//
+// WHAT THIS ACTUALLY DOES, IN PLAIN TERMS: this is Monetag's push-notification
+// ad format, not a normal display banner. Registering the service worker is
+// what allows the site to later ask a visitor's browser for permission to
+// send notifications; if a visitor grants that permission, Monetag can
+// deliver ad notifications to them even after they've left the site. This
+// is a materially more intrusive ad format than the AdSense/Adsterra
+// banners elsewhere on this site, and several browsers (Chrome, Firefox,
+// Edge) apply anti-abuse friction to sites that request notification
+// permission for advertising purposes — this was flagged explicitly before
+// implementation; it's being added because that trade-off was accepted
+// deliberately, not overlooked.
+//
+// Two things this component does to limit the downside as much as possible
+// while still doing what was asked:
+//   1. It only registers the worker after the visitor has already clicked
+//      "Accept" on the cookie consent banner (ConsentBanner.astro) — it
+//      never runs for a visitor who hasn't consented, and never runs twice
+//      for the same visitor (checked via the same localStorage key the
+//      consent banner already uses).
+//   2. Registration is wrapped in a feature check and try/catch, so browsers
+//      without Service Worker support (or that block registration) fail
+//      silently instead of throwing a visible console error.
+// ============================================================================
+---
+
+<script is:inline>
+  (function () {
+    if (!("serviceWorker" in navigator)) return;
+
+    function registerMonetagWorker() {
+      navigator.serviceWorker.register("/sw.js").catch(function () {
+        // Silently ignore registration failures (e.g. browser blocks it,
+        // or the visitor is in a context — like an iframe preview — where
+        // service workers aren't permitted). This ad format is additive
+        // revenue, not required for the site to function.
+      });
+    }
+
+    // Reuse the exact consent value ConsentBanner.astro already stores, so
+    // this never registers before the visitor has explicitly accepted
+    // cookies/ads, and does it immediately (without waiting for another
+    // click) once they have.
+    var consent = localStorage.getItem("cookie-consent");
+    if (consent === "granted") {
+      registerMonetagWorker();
+    } else {
+      // Listen for the moment the visitor clicks "Accept" on THIS page
+      // load (covers a first-time visitor who hasn't made a choice yet).
+      var acceptBtn = document.getElementById("consent-accept");
+      if (acceptBtn) {
+        acceptBtn.addEventListener("click", registerMonetagWorker);
+      }
+    }
+  })();
+</script>

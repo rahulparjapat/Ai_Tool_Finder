@@ -1,0 +1,86 @@
+---
+// ============================================================================
+// index.astro (Homepage)
+// ----------------------------------------------------------------------------
+// The site's landing page: a hero section, then a grid of every category
+// (each with a monochrome icon), then a secondary grid linking to the
+// "Best AI Tools for [audience]" use-case roundups.
+// ============================================================================
+import Layout from "../layouts/Layout.astro";
+import Icon from "../components/Icon.astro";
+import AdSlot from "../components/AdSlot.astro";
+import { categories, tools, useCases, toolsInCategory } from "../lib/data";
+import { SITE } from "../lib/site";
+
+// Structured data: tells search engines this is the site's homepage and
+// gives basic Organization info (used in some rich-result contexts).
+const jsonLd = [
+  { "@context": "https://schema.org", "@type": "WebSite", name: SITE.name, url: SITE.url, description: SITE.description },
+  { "@context": "https://schema.org", "@type": "Organization", name: SITE.name, url: SITE.url },
+];
+---
+
+<Layout
+  title={`${SITE.name} — Compare the Best AI Tools (2026)`}
+  description={SITE.description}
+  path="/"
+  jsonLd={jsonLd}
+>
+  <!-- Hero section -->
+  <section class="mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-2 md:py-24">
+    <div>
+      <h1 class="text-4xl font-semibold tracking-tight text-neutral-950 sm:text-5xl">
+        Find the Best AI Tool for Any Task
+      </h1>
+      <p class="mt-5 max-w-xl text-lg text-neutral-600">
+        {SITE.description}
+      </p>
+      <div class="mt-8 flex flex-wrap gap-4 text-sm text-neutral-500">
+        <span class="rounded-full border border-neutral-200 px-3 py-1">{tools.length} tools reviewed</span>
+        <span class="rounded-full border border-neutral-200 px-3 py-1">{categories.length} categories</span>
+      </div>
+    </div>
+    <img
+      src="/images/hero-illustration.png"
+      alt="Abstract line-art illustration representing an AI network"
+      class="mx-auto hidden max-h-80 w-auto md:block"
+      loading="eager"
+    />
+  </section>
+
+  <AdSlot slot="in-content" />
+
+  <!-- Category grid -->
+  <section class="mx-auto max-w-6xl px-5 py-12">
+    <h2 class="mb-6 text-2xl font-semibold text-neutral-950">Browse by Category</h2>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        categories.map((c) => (
+          <a href={`/categories/${c.slug}/`} class="card flex items-start gap-4 p-5">
+            <Icon name={c.icon} class="h-6 w-6 shrink-0 text-neutral-500" />
+            <div>
+              <h3 class="mb-1 font-medium text-neutral-950">{c.name}</h3>
+              <p class="mb-2 text-sm text-neutral-500">{c.description}</p>
+              <span class="text-xs text-neutral-400">{toolsInCategory(c.slug).length} tools</span>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- "Best AI Tools for..." use-case roundups -->
+  <section class="mx-auto max-w-6xl px-5 pb-16">
+    <h2 class="mb-6 text-2xl font-semibold text-neutral-950">Best AI Tools by Use Case</h2>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        useCases.map((uc) => (
+          <a href={`/best-for/${uc.slug}/`} class="card flex items-center justify-between p-4">
+            <span class="text-sm font-medium text-neutral-800">{uc.title}</span>
+            <Icon name="arrow-right" class="h-4 w-4 shrink-0 text-neutral-400" />
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

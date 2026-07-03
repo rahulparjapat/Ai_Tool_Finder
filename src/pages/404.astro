@@ -1,0 +1,26 @@
+---
+// ============================================================================
+// 404.astro
+// ----------------------------------------------------------------------------
+// Custom not-found page. Marked noindex since it isn't real content, and
+// intentionally simple — its only job is to get a lost visitor back to
+// somewhere useful.
+// ============================================================================
+import Layout from "../layouts/Layout.astro";
+import { SITE } from "../lib/site";
+---
+
+<Layout
+  title={`Page Not Found — ${SITE.name}`}
+  description="This page could not be found."
+  path="/404/"
+  noindex={true}
+>
+  <section class="mx-auto max-w-2xl px-5 py-28 text-center">
+    <h1 class="mb-4 text-4xl font-semibold text-neutral-950">404</h1>
+    <p class="mb-8 text-neutral-500">We couldn't find the page you're looking for.</p>
+    <a href="/" class="rounded-md bg-neutral-950 px-5 py-3 font-medium text-white hover:bg-neutral-800">
+      Go back home
+    </a>
+  </section>
+</Layout>

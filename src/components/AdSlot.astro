@@ -1,0 +1,59 @@
+---
+// ============================================================================
+// AdSlot.astro
+// ----------------------------------------------------------------------------
+// A single, reusable ad placement. Every ad unit on the site renders through
+// this one component, which means migrating ad networks later (e.g. adding
+// Ezoic, or graduating to Mediavine/Raptive once traffic thresholds are
+// met — see PHASE_3_LAUNCH_PROCESS.md) is a change in ONE file, not a
+// site-wide rewrite.
+//
+// Until you create real ad units in your AdSense dashboard and pass their
+// IDs in via `adUnitId`, this renders a clearly-labeled placeholder box at a
+// fixed height — this avoids Cumulative Layout Shift (CLS) once real ads
+// start loading, since the space is already reserved.
+// ============================================================================
+import { SITE } from "../lib/site";
+
+interface Props {
+  /** Which placement this is — purely descriptive, used for the data attribute. */
+  slot: "in-content" | "sidebar" | "footer";
+  /** Real AdSense ad-unit slot ID, once created in the AdSense dashboard. */
+  adUnitId?: string;
+}
+
+const { slot, adUnitId } = Astro.props;
+const hasRealUnit = Boolean(adUnitId);
+---
+
+<div class={`ad-slot ad-slot--${slot} my-8 flex justify-center`} data-ad-slot={slot}>
+  {
+    hasRealUnit ? (
+      // Real AdSense unit — `ca-pub-...` is built from the shared publisher
+      // ID in site.ts, so it's never duplicated/hand-typed per placement.
+      <ins
+        class="adsbygoogle"
+        style="display:block"
+        data-ad-client={`ca-${SITE.adsensePublisherId}`}
+        data-ad-slot={adUnitId}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    ) : (
+      // Placeholder: fixed height, neutral border, matches the white/minimal
+      // theme, and is clearly labeled so it's obvious this isn't a real ad
+      // (as opposed to a broken one) during development.
+      <div class="flex h-24 w-full max-w-2xl items-center justify-center rounded-lg border border-dashed border-neutral-300 text-xs text-neutral-400">
+        Ad slot: {slot} (configure adUnitId to activate)
+      </div>
+    )
+  }
+</div>
+
+{
+  hasRealUnit && (
+    // Tells the AdSense script (loaded once, sitewide, in Layout.astro) to
+    // fill this specific <ins> element.
+    <script is:inline>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  )
+}

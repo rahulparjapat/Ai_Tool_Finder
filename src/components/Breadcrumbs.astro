@@ -1,0 +1,53 @@
+---
+// ============================================================================
+// Breadcrumbs.astro
+// ----------------------------------------------------------------------------
+// Renders both the visible breadcrumb trail AND the matching BreadcrumbList
+// JSON-LD structured data, from the same `crumbs` array — keeping the two
+// perfectly in sync (a common SEO mistake is having them drift apart).
+// ============================================================================
+import { SITE } from "../lib/site";
+
+interface Crumb {
+  name: string;
+  /** Path relative to the site root, e.g. "/tools/". */
+  path: string;
+}
+
+interface Props {
+  crumbs: Crumb[];
+}
+
+const { crumbs } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: crumbs.map((c, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: c.name,
+    item: new URL(c.path, SITE.url).toString(),
+  })),
+};
+---
+
+<nav aria-label="Breadcrumb" class="mx-auto max-w-6xl px-5 pt-6 text-sm text-neutral-500">
+  <ol class="flex flex-wrap items-center gap-1">
+    {
+      crumbs.map((c, i) => (
+        <li class="flex items-center gap-1">
+          {i > 0 && <span class="mx-1 text-neutral-300">/</span>}
+          {i === crumbs.length - 1 ? (
+            <span class="text-neutral-800">{c.name}</span>
+          ) : (
+            <a href={c.path} class="hover:text-neutral-950">
+              {c.name}
+            </a>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

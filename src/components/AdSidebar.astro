@@ -1,0 +1,20 @@
+---
+// ============================================================================
+// AdSidebar.astro
+// ----------------------------------------------------------------------------
+// A persistent right-hand sidebar shown alongside long-form content (tool
+// reviews, blog posts) on wide screens, and hidden entirely on mobile —
+// there's no room for a 160x600 skyscraper on a phone screen, and forcing
+// one in would hurt the mobile reading experience for the majority of
+// visitors. `sticky` keeps the ad in view while the visitor scrolls a long
+// article, which is standard, non-intrusive practice (as opposed to a
+// fixed/floating overlay that follows scroll on top of content).
+// ============================================================================
+import AdsterraBanner from "./AdsterraBanner.astro";
+---
+
+<aside class="hidden w-[160px] shrink-0 lg:block">
+  <div class="sticky top-24">
+    <AdsterraBanner size="160x600" />
+  </div>
+</aside>

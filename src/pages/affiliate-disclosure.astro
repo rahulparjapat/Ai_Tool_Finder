@@ -1,0 +1,45 @@
+---
+// ============================================================================
+// affiliate-disclosure.astro
+// ----------------------------------------------------------------------------
+// FTC-required disclosure page for any site using affiliate links. Linked
+// from the footer on every page, and referenced from Privacy Policy/Terms.
+// ============================================================================
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { SITE } from "../lib/site";
+
+const title = `Affiliate Disclosure — ${SITE.name}`;
+const description = `How ${SITE.name} uses affiliate links, per FTC guidelines.`;
+---
+
+<Layout title={title} description={description} path="/affiliate-disclosure/">
+  <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "Affiliate Disclosure", path: "/affiliate-disclosure/" }]} />
+  <article class="mx-auto max-w-3xl px-5 py-10">
+    <h1 class="mb-6 text-3xl font-semibold text-neutral-950">Affiliate Disclosure</h1>
+    <div class="space-y-4 text-neutral-700">
+      <p>
+        {SITE.name} participates in affiliate marketing programs. This means that some of the
+        links to third-party AI tools on this site are affiliate links — if you click one and sign
+        up or make a purchase, we may earn a commission, at no extra cost to you.
+      </p>
+      <p>
+        In accordance with the U.S. Federal Trade Commission's (FTC) guidelines on endorsements and
+        testimonials, we disclose this relationship clearly. Affiliate links are marked with
+        <code class="rounded bg-neutral-100 px-1.5 py-0.5 text-xs">rel="sponsored"</code> in the page
+        source.
+      </p>
+      <p>
+        Our reviews and comparisons reflect our genuine assessment of each tool based on publicly
+        available pricing and feature information. Affiliate relationships do not influence which
+        tools we choose to review or how we rank them.
+      </p>
+      <p>
+        This site also displays advertising through Google AdSense, which is separate from our
+        affiliate relationships. See our
+        <a href="/privacy-policy/" class="text-neutral-950 underline underline-offset-2">Privacy Policy</a>
+        for details on how ads are served.
+      </p>
+    </div>
+  </article>
+</Layout>

@@ -1,0 +1,63 @@
+---
+// ============================================================================
+// AdsterraBanner.astro
+// ----------------------------------------------------------------------------
+// Renders one of Adsterra's fixed-size "highperformanceformat" banner units
+// (the atOptions()-based ad format, distinct from the Native Banner in
+// AdsterraNative.astro, which uses a different script format entirely).
+//
+// Each size has its own unique `key`. The two script tags below are
+// deliberately NOT marked `async` — this matches Adsterra's own snippet
+// exactly, and matters functionally: without async, the browser executes
+// each pair of script tags fully, in order, before moving on. That's what
+// lets multiple different-sized AdsterraBanner instances safely coexist on
+// the same page (e.g. a top banner + a sidebar banner) — each one's
+// `atOptions` is set and consumed by its own invoke.js before the next
+// banner's script tags run, so they never overwrite each other.
+//
+// A fixed-height wrapper reserves the exact ad's pixel size before the
+// iframe loads, preventing layout shift (CLS) once it does.
+// ============================================================================
+interface Props {
+  /** Which Adsterra banner size to render. */
+  size: "728x90" | "320x50" | "300x250" | "160x600" | "160x300" | "468x60";
+}
+
+const { size } = Astro.props;
+
+// Real Adsterra ad-zone keys for aitoolfindercom.netlify.app, one per size.
+// All six currently point at the same "highperformanceformat.com" script
+// host — that's simply which network endpoint Adsterra assigned this
+// account, not something guessed or assumed.
+const UNITS: Record<Props["size"], { key: string; width: number; height: number }> = {
+  "728x90": { key: "6201afc6651ffda69b3abdcbd15b6cc0", width: 728, height: 90 },
+  "320x50": { key: "a6153ccb18b120408b3fc75242c75f8e", width: 320, height: 50 },
+  "300x250": { key: "719c67e35e43e95b8da46f73391382e4", width: 300, height: 250 },
+  "160x600": { key: "425734fefdea92477b1e301f3b765a87", width: 160, height: 600 },
+  "160x300": { key: "64b312f1a196e60aab725b8478933ca4", width: 160, height: 300 },
+  "468x60": { key: "b9df94e1779ac917b789d5efd008e7bb", width: 468, height: 60 },
+};
+
+const unit = UNITS[size];
+---
+
+<!-- A subtle neutral background fills the reserved space so that if the ad
+     never loads (ad blockers strip the script for a meaningful share of
+     visitors, and Adsterra may also take time to start serving real
+     creative on a brand-new domain), the result reads as an intentional,
+     quiet bit of visual rhythm rather than a broken-looking blank gap. -->
+<div
+  class="ad-slot ad-slot--banner mx-auto overflow-hidden rounded-md bg-neutral-50"
+  style={`width:${unit.width}px; height:${unit.height}px;`}
+  data-ad-size={size}
+>
+  <script is:inline define:vars={{ key: unit.key, width: unit.width, height: unit.height }}>
+    // Assigned directly on `window` (rather than `var atOptions = ...`)
+    // because the value is read by Adsterra's own external invoke.js
+    // script immediately below, not by any code in this file — a plain
+    // `var` here looks "unused" to static analysis even though it's
+    // functionally required as a global.
+    window.atOptions = { key: key, format: "iframe", height: height, width: width, params: {} };
+  </script>
+  <script is:inline src={`https://www.highperformanceformat.com/${unit.key}/invoke.js`}></script>
+</div>

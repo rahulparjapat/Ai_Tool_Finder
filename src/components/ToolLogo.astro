@@ -1,0 +1,69 @@
+---
+// ============================================================================
+// ToolLogo.astro
+// ----------------------------------------------------------------------------
+// Renders a visual mark for a tool. Uses each tool's REAL, official favicon
+// (downloaded once via scripts/fetch-favicons.mjs into
+// public/images/logos/[slug].png) when one is available, and falls back to
+// a generated monogram badge (the tool's initial letter) when it isn't.
+//
+// Why a favicon rather than a full logo: a favicon is each company's small
+// site icon — the same icon browsers show in a tab or bookmark — not their
+// full trademarked wordmark/logo. It's a meaningfully lower-risk category
+// of asset for this kind of directory/reference use than reproducing a full
+// logo would be, though it's still that company's mark, not something
+// neutral. See PROJECT_OVERVIEW.md for the full reasoning, including why
+// full logos and stock photography are not used on this site.
+//
+// Why fetch-and-store locally instead of a live external embed: a live
+// third-party embed would silently break in a sandboxed/offline preview and
+// adds an ongoing dependency outside this project's control. Storing the
+// files locally (via the one-off fetch script) keeps the site fully
+// self-contained and still $0 to run.
+//
+// Fallback behavior: not every tool has a usable favicon (some sites don't
+// serve one, or only serve a generic icon) — scripts/fetch-favicons.mjs
+// intentionally skips saving anything for those, so this component just
+// renders the monogram badge instead. Nothing breaks either way.
+// ============================================================================
+import fs from "node:fs";
+import path from "node:path";
+
+interface Props {
+  name: string;
+  /** The tool's URL slug, used to look up public/images/logos/[slug].png. */
+  slug: string;
+  /** Tailwind sizing classes for the square badge/image, e.g. "h-12 w-12". */
+  class?: string;
+}
+
+const { name, slug, class: className = "h-12 w-12" } = Astro.props;
+const initial = name.trim().charAt(0).toUpperCase();
+
+// Checked at build time (this runs once per static page build, not per
+// visitor request) — cheap, and avoids needing to hand-maintain a list of
+// "which tools have a real favicon" separately from the actual files on disk.
+const logoPath = path.join(process.cwd(), "public", "images", "logos", `${slug}.png`);
+const hasRealFavicon = fs.existsSync(logoPath);
+---
+
+{
+  hasRealFavicon ? (
+    <div class={`flex items-center justify-center rounded-xl border border-neutral-200 bg-white p-2 ${className}`}>
+      <img
+        src={`/images/logos/${slug}.png`}
+        alt={`${name} icon`}
+        class="h-full w-full object-contain"
+        loading="lazy"
+      />
+    </div>
+  ) : (
+    <div
+      class={`flex items-center justify-center rounded-xl border border-neutral-200 bg-neutral-50 font-semibold text-neutral-500 ${className}`}
+      role="img"
+      aria-label={`${name} logo placeholder`}
+    >
+      {initial}
+    </div>
+  )
+}

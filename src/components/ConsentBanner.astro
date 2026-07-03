@@ -1,0 +1,92 @@
+---
+// ============================================================================
+// ConsentBanner.astro
+// ----------------------------------------------------------------------------
+// A minimal, dependency-free cookie-consent banner. It has exactly one job:
+// let the visitor accept or reject non-essential cookies (analytics + ad
+// personalization), remember that choice in localStorage, and forward it to
+// Google Consent Mode v2 via `gtag('consent', 'update', ...)`.
+//
+// This is intentionally plain HTML/CSS/JS rather than a consent-management
+// library, to keep the site at zero external dependencies. For most small
+// sites this is sufficient; if you later need finer-grained (per-vendor)
+// consent categories for stricter regional compliance, swap this component
+// for a dedicated CMP (e.g. a free tier of Cookiebot or Osano).
+// ============================================================================
+---
+
+<div
+  id="consent-banner"
+  class="fixed inset-x-0 bottom-0 z-50 hidden border-t border-neutral-200 bg-white p-4 text-sm text-neutral-700 shadow-[0_-4px_16px_rgba(0,0,0,0.04)]"
+>
+  <div class="mx-auto flex max-w-5xl flex-col items-center gap-3 sm:flex-row sm:justify-between">
+    <p class="text-center sm:text-left">
+      We use cookies for analytics and to personalize ads. See our
+      <a href="/privacy-policy/" class="underline underline-offset-2 hover:text-neutral-950">Privacy Policy</a>.
+    </p>
+    <div class="flex shrink-0 gap-2">
+      <button
+        id="consent-reject"
+        class="rounded-md border border-neutral-300 px-4 py-2 text-neutral-700 transition hover:bg-neutral-50"
+      >
+        Reject
+      </button>
+      <button
+        id="consent-accept"
+        class="rounded-md bg-neutral-950 px-4 py-2 font-medium text-white transition hover:bg-neutral-800"
+      >
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  // Plain, framework-free consent logic. Runs once per page load and reads
+  // any prior choice from localStorage so returning visitors don't see the
+  // banner again.
+  (function () {
+    function updateConsent(granted) {
+      // gtag() may not exist yet if Analytics.astro didn't load (e.g. GA4
+      // isn't configured) — guard against that so this never throws.
+      if (typeof window.gtag !== "function") return;
+      window.gtag("consent", "update", {
+        ad_storage: granted ? "granted" : "denied",
+        analytics_storage: granted ? "granted" : "denied",
+        ad_user_data: granted ? "granted" : "denied",
+        ad_personalization: granted ? "granted" : "denied",
+      });
+    }
+
+    var STORAGE_KEY = "cookie-consent";
+    var banner = document.getElementById("consent-banner");
+    var stored = localStorage.getItem(STORAGE_KEY);
+
+    if (stored === "granted") {
+      updateConsent(true);
+    } else if (stored === "denied") {
+      updateConsent(false);
+    } else if (banner) {
+      // No prior choice recorded — show the banner.
+      banner.classList.remove("hidden");
+    }
+
+    var acceptBtn = document.getElementById("consent-accept");
+    var rejectBtn = document.getElementById("consent-reject");
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener("click", function () {
+        localStorage.setItem(STORAGE_KEY, "granted");
+        updateConsent(true);
+        if (banner) banner.classList.add("hidden");
+      });
+    }
+    if (rejectBtn) {
+      rejectBtn.addEventListener("click", function () {
+        localStorage.setItem(STORAGE_KEY, "denied");
+        updateConsent(false);
+        if (banner) banner.classList.add("hidden");
+      });
+    }
+  })();
+</script>

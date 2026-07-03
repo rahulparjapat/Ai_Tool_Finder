@@ -1,0 +1,43 @@
+---
+// ============================================================================
+// blog/index.astro
+// ----------------------------------------------------------------------------
+// Lists every published blog post (drafts excluded), newest first. Blog
+// posts are hand-written Markdown files in src/content/blog/ — they exist
+// to target long-tail keywords and add genuine long-form content alongside
+// the auto-generated tool/comparison pages, which helps with E-E-A-T
+// signals for search engines.
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { getCollection } from "astro:content";
+import { SITE } from "../../lib/site";
+
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+const posts = allPosts.sort(
+  (a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime()
+);
+
+const title = `Blog — ${SITE.name}`;
+const description = "Long-form guides and roundups on AI tools, written by hand to complement our tool database.";
+---
+
+<Layout title={title} description={description} path="/blog/">
+  <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "Blog", path: "/blog/" }]} />
+  <section class="mx-auto max-w-3xl px-5 py-10">
+    <h1 class="mb-8 text-3xl font-semibold text-neutral-950">Blog</h1>
+    <ul class="space-y-4">
+      {
+        posts.map((post) => (
+          <li class="card p-5">
+            <a href={`/blog/${post.id}/`} class="text-lg font-medium text-neutral-950 hover:underline">
+              {post.data.title}
+            </a>
+            <p class="mt-1 text-xs text-neutral-400">{post.data.publishDate}</p>
+            <p class="mt-2 text-sm text-neutral-600">{post.data.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

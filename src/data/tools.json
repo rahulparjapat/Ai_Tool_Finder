@@ -1,0 +1,2552 @@
+{
+  "tools": [
+    {
+      "slug": "chatgpt",
+      "name": "ChatGPT",
+      "maker": "OpenAI",
+      "categories": [
+        "chatbots",
+        "writing",
+        "research"
+      ],
+      "tagline": "The most widely used AI chatbot for writing, research, coding help, and everyday questions.",
+      "pricing": "Free plan available; Plus $20/mo; Pro $200/mo",
+      "hasFreeTier": true,
+      "website": "https://chatgpt.com",
+      "pros": [
+        "Extremely versatile across writing, coding, and research",
+        "Strong free tier with a capable default model",
+        "Huge plugin and custom-GPT ecosystem"
+      ],
+      "cons": [
+        "Free tier has usage limits and slows at peak times",
+        "Can produce confident but incorrect answers"
+      ],
+      "bestFor": "A general-purpose assistant for writing, brainstorming, coding, and quick research.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "claude",
+      "name": "Claude",
+      "maker": "Anthropic",
+      "categories": [
+        "chatbots",
+        "coding",
+        "writing"
+      ],
+      "tagline": "An AI assistant known for careful reasoning, long context windows, and strong coding ability.",
+      "pricing": "Free plan available; Pro $20/mo; Max plans from $100/mo",
+      "hasFreeTier": true,
+      "website": "https://claude.ai",
+      "pros": [
+        "Excellent for long documents thanks to a large context window",
+        "Strong, reliable coding assistant",
+        "Careful, well-structured writing style"
+      ],
+      "cons": [
+        "Free tier has tighter daily message limits",
+        "No native image generation"
+      ],
+      "bestFor": "Long-document analysis, coding, and nuanced writing tasks.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "gemini",
+      "name": "Gemini",
+      "maker": "Google",
+      "categories": [
+        "chatbots",
+        "research",
+        "productivity"
+      ],
+      "tagline": "Google's AI assistant, deeply integrated with Search, Gmail, Docs, and Android.",
+      "pricing": "Free plan available; Google AI Premium from $19.99/mo",
+      "hasFreeTier": true,
+      "website": "https://gemini.google.com",
+      "pros": [
+        "Tight integration with Gmail, Docs, Sheets, and Android",
+        "Strong real-time web search grounding",
+        "Very large context window on paid tiers"
+      ],
+      "cons": [
+        "Best features locked behind a Google One subscription",
+        "Less consistent formatting than some competitors"
+      ],
+      "bestFor": "Users already inside the Google Workspace or Android ecosystem.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "grok",
+      "name": "Grok",
+      "maker": "xAI",
+      "categories": [
+        "chatbots",
+        "research"
+      ],
+      "tagline": "A conversational AI with real-time access to X (Twitter) data and a more casual tone.",
+      "pricing": "Free tier available; premium access bundled with X Premium+ subscriptions",
+      "hasFreeTier": true,
+      "website": "https://x.ai/grok",
+      "pros": [
+        "Real-time awareness of trending conversations and events",
+        "Distinct, less formal personality",
+        "Fast response times"
+      ],
+      "cons": [
+        "Best features tied to an X Premium+ subscription",
+        "Smaller third-party ecosystem than ChatGPT or Gemini"
+      ],
+      "bestFor": "Users who want current-events awareness alongside a chatbot.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "microsoft-copilot",
+      "name": "Microsoft Copilot",
+      "maker": "Microsoft",
+      "categories": [
+        "chatbots",
+        "productivity"
+      ],
+      "tagline": "An AI assistant built into Windows, Edge, and Microsoft 365 apps.",
+      "pricing": "Free web version; Microsoft 365 Copilot add-on from $30/user/mo",
+      "hasFreeTier": true,
+      "website": "https://copilot.microsoft.com",
+      "pros": [
+        "Deep integration with Word, Excel, Outlook, and Teams",
+        "Free version usable without a Microsoft 365 subscription",
+        "Enterprise-grade data handling and admin controls"
+      ],
+      "cons": [
+        "Full productivity features require a paid 365 add-on",
+        "Experience varies across different Microsoft apps"
+      ],
+      "bestFor": "Teams and individuals already standardized on Microsoft 365.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "meta-ai",
+      "name": "Meta AI",
+      "maker": "Meta",
+      "categories": [
+        "chatbots"
+      ],
+      "tagline": "A free AI assistant built into WhatsApp, Instagram, Facebook, and Messenger.",
+      "pricing": "Free",
+      "hasFreeTier": true,
+      "website": "https://www.meta.ai",
+      "pros": [
+        "Completely free with no paid tier",
+        "Built directly into apps billions already use",
+        "Fast, casual conversational style"
+      ],
+      "cons": [
+        "Less capable at complex reasoning or coding tasks",
+        "Fewer power-user features like custom instructions"
+      ],
+      "bestFor": "Quick questions inside apps you already use daily.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "deepseek",
+      "name": "DeepSeek",
+      "maker": "DeepSeek AI",
+      "categories": [
+        "chatbots",
+        "coding"
+      ],
+      "tagline": "An open-weight AI chatbot known for strong reasoning at a very low cost.",
+      "pricing": "Free web and app access; API priced per token",
+      "hasFreeTier": true,
+      "website": "https://www.deepseek.com",
+      "pros": [
+        "Free to use with no daily limits on the web app",
+        "Open-weight models can be self-hosted",
+        "Strong performance on reasoning and coding benchmarks"
+      ],
+      "cons": [
+        "Data handling policies draw more scrutiny than Western providers",
+        "Smaller plugin and integration ecosystem"
+      ],
+      "bestFor": "Budget-conscious users and developers wanting an open-weight model.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "jasper",
+      "name": "Jasper",
+      "maker": "Jasper AI",
+      "categories": [
+        "writing",
+        "seo-marketing"
+      ],
+      "tagline": "An AI writing platform built for marketing teams and brand-consistent content.",
+      "pricing": "No permanent free tier; plans start around $49/mo",
+      "hasFreeTier": false,
+      "website": "https://www.jasper.ai",
+      "pros": [
+        "Brand voice training for consistent marketing copy",
+        "Templates for ads, emails, and landing pages",
+        "Team collaboration and approval workflows"
+      ],
+      "cons": [
+        "No permanent free plan",
+        "Pricier than general chatbots for basic writing"
+      ],
+      "bestFor": "Marketing teams that need on-brand copy at scale.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "copy-ai",
+      "name": "Copy.ai",
+      "maker": "Copy.ai",
+      "categories": [
+        "writing",
+        "seo-marketing"
+      ],
+      "tagline": "AI copywriting tool focused on marketing content and workflow automation.",
+      "pricing": "Free plan available; paid plans from $49/mo",
+      "hasFreeTier": true,
+      "website": "https://www.copy.ai",
+      "pros": [
+        "Usable free tier with a monthly word allowance",
+        "Workflow automations for repetitive marketing tasks",
+        "Simple templates for beginners"
+      ],
+      "cons": [
+        "Output often needs heavy editing for longer content",
+        "Advanced automation locked behind higher tiers"
+      ],
+      "bestFor": "Quick marketing copy like ads, captions, and product descriptions.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "grammarly",
+      "name": "Grammarly",
+      "maker": "Grammarly Inc.",
+      "categories": [
+        "writing",
+        "education"
+      ],
+      "tagline": "AI-powered grammar, tone, and clarity checker with a generative writing assistant.",
+      "pricing": "Free plan available; Premium from $12/mo",
+      "hasFreeTier": true,
+      "website": "https://www.grammarly.com",
+      "pros": [
+        "Works everywhere via browser extension and desktop app",
+        "Strong free tier for grammar and spelling",
+        "Tone and clarity suggestions beyond basic grammar"
+      ],
+      "cons": [
+        "Advanced generative rewriting needs Premium",
+        "Can be conservative with stylistic writing choices"
+      ],
+      "bestFor": "Everyday proofreading and tone-checking across any app.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "writesonic",
+      "name": "Writesonic",
+      "maker": "Writesonic",
+      "categories": [
+        "writing",
+        "seo-marketing"
+      ],
+      "tagline": "An all-in-one AI content platform combining writing, SEO research, and GEO tracking.",
+      "pricing": "Free plan available; paid plans from $39/mo",
+      "hasFreeTier": true,
+      "website": "https://writesonic.com",
+      "pros": [
+        "Combines writing with live SEO and keyword data",
+        "GEO tracking for visibility in AI answer engines",
+        "Good template variety for different content types"
+      ],
+      "cons": [
+        "Interface has a learning curve for new users",
+        "Best SEO features require a paid plan"
+      ],
+      "bestFor": "Teams that want writing and SEO research in a single tool.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "sudowrite",
+      "name": "Sudowrite",
+      "maker": "Sudowrite",
+      "categories": [
+        "writing"
+      ],
+      "tagline": "An AI writing tool built specifically for fiction authors and novelists.",
+      "pricing": "No permanent free tier; plans start around $10/mo",
+      "hasFreeTier": false,
+      "website": "https://www.sudowrite.com",
+      "pros": [
+        "Purpose-built for fiction rather than marketing copy",
+        "Story Bible feature keeps characters and plot consistent",
+        "Brainstorming tools tuned for creative writing"
+      ],
+      "cons": [
+        "Narrow focus makes it less useful outside fiction",
+        "No free tier to try before subscribing"
+      ],
+      "bestFor": "Novelists and fiction writers working on long-form stories.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "rytr",
+      "name": "Rytr",
+      "maker": "Rytr",
+      "categories": [
+        "writing"
+      ],
+      "tagline": "A budget-friendly AI writing assistant for short-form marketing content.",
+      "pricing": "Free plan available; paid plans from $9/mo",
+      "hasFreeTier": true,
+      "website": "https://rytr.me",
+      "pros": [
+        "One of the cheapest paid AI writing tools available",
+        "Free tier covers light, occasional use",
+        "Simple interface with minimal learning curve"
+      ],
+      "cons": [
+        "Output quality trails premium competitors on long-form content",
+        "Fewer collaboration features for teams"
+      ],
+      "bestFor": "Solo creators and small businesses on a tight budget.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "quillbot",
+      "name": "QuillBot",
+      "maker": "QuillBot",
+      "categories": [
+        "writing",
+        "education"
+      ],
+      "tagline": "An AI paraphrasing and grammar tool popular with students and researchers.",
+      "pricing": "Free plan available; Premium from $9.95/mo",
+      "hasFreeTier": true,
+      "website": "https://quillbot.com",
+      "pros": [
+        "Strong paraphrasing modes for rewording text",
+        "Built-in grammar checker and plagiarism checker",
+        "Generous free tier for occasional use"
+      ],
+      "cons": [
+        "Paraphrased text can still need manual editing",
+        "Some advanced modes limited on the free plan"
+      ],
+      "bestFor": "Students and researchers rewording and polishing written work.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "midjourney",
+      "name": "Midjourney",
+      "maker": "Midjourney, Inc.",
+      "categories": [
+        "image-generation",
+        "design"
+      ],
+      "tagline": "One of the most popular AI image generators, known for highly artistic, polished output.",
+      "pricing": "No permanent free tier; plans start at $10/mo",
+      "hasFreeTier": false,
+      "website": "https://www.midjourney.com",
+      "pros": [
+        "Exceptional image quality and artistic coherence",
+        "Active community and a huge shared prompt library",
+        "Frequent model upgrades"
+      ],
+      "cons": [
+        "No free tier since 2023",
+        "Runs primarily through Discord, which has a learning curve"
+      ],
+      "bestFor": "Artists and designers wanting the highest-quality stylized images.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "dalle",
+      "name": "DALL-E 3",
+      "maker": "OpenAI",
+      "categories": [
+        "image-generation"
+      ],
+      "tagline": "OpenAI's image generator, built directly into ChatGPT.",
+      "pricing": "Included with ChatGPT Plus ($20/mo); limited free use in ChatGPT",
+      "hasFreeTier": true,
+      "website": "https://openai.com/index/dall-e-3/",
+      "pros": [
+        "Seamless integration with ChatGPT for iterative editing",
+        "Good at following detailed, literal prompts",
+        "Free tier lets you try it inside ChatGPT"
+      ],
+      "cons": [
+        "Less stylistically distinctive than Midjourney",
+        "Free usage limits reset periodically"
+      ],
+      "bestFor": "Users who already use ChatGPT and want inline image generation.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "stable-diffusion",
+      "name": "Stable Diffusion",
+      "maker": "Stability AI",
+      "categories": [
+        "image-generation"
+      ],
+      "tagline": "An open-source image generation model you can run for free or self-host.",
+      "pricing": "Free and open-source; hosted services vary in price",
+      "hasFreeTier": true,
+      "website": "https://stability.ai",
+      "pros": [
+        "Free and open-source, can run on your own hardware",
+        "Highly customizable with community-trained models",
+        "No content restrictions beyond your own hosting choice"
+      ],
+      "cons": [
+        "Requires technical setup to self-host effectively",
+        "Output quality depends heavily on the model and settings used"
+      ],
+      "bestFor": "Developers and hobbyists who want full control and no subscription.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "leonardo-ai",
+      "name": "Leonardo AI",
+      "maker": "Leonardo AI",
+      "categories": [
+        "image-generation",
+        "design"
+      ],
+      "tagline": "AI image generation platform popular with game artists and designers.",
+      "pricing": "Free daily credits; paid plans from $12/mo",
+      "hasFreeTier": true,
+      "website": "https://leonardo.ai",
+      "pros": [
+        "Generous free daily credits",
+        "Fine-tuned models for game assets, icons, and textures",
+        "Built-in upscaling and canvas editing"
+      ],
+      "cons": [
+        "Steeper learning curve than simpler tools",
+        "Best models require a paid plan"
+      ],
+      "bestFor": "Game developers and designers needing specific asset styles.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "adobe-firefly",
+      "name": "Adobe Firefly",
+      "maker": "Adobe",
+      "categories": [
+        "image-generation",
+        "design"
+      ],
+      "tagline": "Adobe's generative AI, built into Photoshop, Illustrator, and Express.",
+      "pricing": "Free plan available; Premium from $4.99/mo",
+      "hasFreeTier": true,
+      "website": "https://www.adobe.com/products/firefly.html",
+      "pros": [
+        "Trained on licensed content, safer for commercial use",
+        "Deep integration with the Adobe Creative Cloud suite",
+        "Affordable entry-level pricing"
+      ],
+      "cons": [
+        "Best features require Creative Cloud apps",
+        "Image quality can trail dedicated generators like Midjourney"
+      ],
+      "bestFor": "Designers already working inside Adobe's Creative Cloud.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "ideogram",
+      "name": "Ideogram",
+      "maker": "Ideogram AI",
+      "categories": [
+        "image-generation"
+      ],
+      "tagline": "An AI image generator known for accurately rendering text inside images.",
+      "pricing": "Free plan available; paid plans from $8/mo",
+      "hasFreeTier": true,
+      "website": "https://ideogram.ai",
+      "pros": [
+        "Best-in-class at rendering readable text in images",
+        "Usable free tier with daily generations",
+        "Good for logos, posters, and typography-heavy designs"
+      ],
+      "cons": [
+        "Overall artistic style less distinctive than Midjourney",
+        "Higher resolution exports require a paid plan"
+      ],
+      "bestFor": "Designers who need images with accurate embedded text.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "playground-ai",
+      "name": "Playground AI",
+      "maker": "Playground",
+      "categories": [
+        "image-generation"
+      ],
+      "tagline": "A free, beginner-friendly AI image generator with an in-browser canvas editor.",
+      "pricing": "Free plan available; paid plans from $15/mo",
+      "hasFreeTier": true,
+      "website": "https://playground.com",
+      "pros": [
+        "Beginner-friendly interface with an in-browser editor",
+        "Generous free daily image allowance",
+        "Filters and canvas tools for quick edits"
+      ],
+      "cons": [
+        "Advanced control features are less deep than pro tools",
+        "Community/public images visible on the free plan"
+      ],
+      "bestFor": "Beginners wanting a simple, free way to start generating images.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "runway",
+      "name": "Runway",
+      "maker": "Runway AI",
+      "categories": [
+        "video-generation",
+        "image-generation"
+      ],
+      "tagline": "Professional-grade AI video generation and editing suite.",
+      "pricing": "Free plan available with limited credits; paid plans from $12/mo",
+      "hasFreeTier": true,
+      "website": "https://runwayml.com",
+      "pros": [
+        "Industry-leading text-to-video quality",
+        "Advanced editing tools like green screen and motion tracking",
+        "Used by professional film and ad studios"
+      ],
+      "cons": [
+        "Free credits are limited and video generation is compute-heavy",
+        "Steeper learning curve for beginners"
+      ],
+      "bestFor": "Creators and studios needing professional AI video generation.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "heygen",
+      "name": "HeyGen",
+      "maker": "HeyGen",
+      "categories": [
+        "video-generation"
+      ],
+      "tagline": "Create talking AI avatar videos from text, in dozens of languages.",
+      "pricing": "Free plan available; paid plans from $29/mo",
+      "hasFreeTier": true,
+      "website": "https://www.heygen.com",
+      "pros": [
+        "Realistic AI avatars that speak 175+ languages",
+        "Fast turnaround for training videos and marketing clips",
+        "No filming or actors required"
+      ],
+      "cons": [
+        "Avatars can still look slightly synthetic in close-ups",
+        "Free tier limited to short watermarked videos"
+      ],
+      "bestFor": "Marketing and training videos without hiring on-camera talent.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "synthesia",
+      "name": "Synthesia",
+      "maker": "Synthesia",
+      "categories": [
+        "video-generation"
+      ],
+      "tagline": "Enterprise-focused AI video platform for multilingual training and corporate content.",
+      "pricing": "No permanent free tier; plans start around $22/mo",
+      "hasFreeTier": false,
+      "website": "https://www.synthesia.io",
+      "pros": [
+        "Enterprise-grade avatar and voice library",
+        "Strong multilingual dubbing support",
+        "Widely used for corporate training content"
+      ],
+      "cons": [
+        "No free tier, only a limited demo",
+        "Pricier than consumer-focused alternatives"
+      ],
+      "bestFor": "Enterprises producing multilingual training and onboarding videos.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "pika",
+      "name": "Pika",
+      "maker": "Pika Labs",
+      "categories": [
+        "video-generation"
+      ],
+      "tagline": "A fast, creator-friendly text-to-video and video-editing AI tool.",
+      "pricing": "Free plan available; paid plans from $10/mo",
+      "hasFreeTier": true,
+      "website": "https://pika.art",
+      "pros": [
+        "Quick generation times for short clips",
+        "Fun creative effects like Pikaffects",
+        "Approachable for social media creators"
+      ],
+      "cons": [
+        "Clip lengths are shorter than some competitors",
+        "Free tier credits run out quickly with heavy use"
+      ],
+      "bestFor": "Short-form social video creators wanting quick AI clips.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "luma-dream-machine",
+      "name": "Luma Dream Machine",
+      "maker": "Luma AI",
+      "categories": [
+        "video-generation"
+      ],
+      "tagline": "A text-to-video and image-to-video generator known for realistic motion.",
+      "pricing": "Free plan available; paid plans from $9.99/mo",
+      "hasFreeTier": true,
+      "website": "https://lumalabs.ai/dream-machine",
+      "pros": [
+        "Realistic, physically plausible motion in generated clips",
+        "Usable free tier for occasional generations",
+        "Fast iteration speed"
+      ],
+      "cons": [
+        "Longer or more complex scenes are harder to control precisely",
+        "Higher resolution exports need a paid plan"
+      ],
+      "bestFor": "Creators wanting realistic motion in short AI-generated clips.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "capcut",
+      "name": "CapCut",
+      "maker": "ByteDance",
+      "categories": [
+        "video-generation"
+      ],
+      "tagline": "Free AI-powered video editor popular for short-form social content.",
+      "pricing": "Free with an optional Pro subscription for premium effects",
+      "hasFreeTier": true,
+      "website": "https://www.capcut.com",
+      "pros": [
+        "Completely free core editor, including AI tools",
+        "Templates optimized for TikTok, Reels, and Shorts",
+        "Available on both mobile and desktop"
+      ],
+      "cons": [
+        "Some advanced AI effects require the Pro plan",
+        "Data privacy considerations given ByteDance ownership"
+      ],
+      "bestFor": "Social media creators editing short-form video on a budget.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "invideo-ai",
+      "name": "InVideo AI",
+      "maker": "InVideo",
+      "categories": [
+        "video-generation"
+      ],
+      "tagline": "Generates a full video with script, visuals, and voiceover from a single prompt.",
+      "pricing": "Free plan available; paid plans from $20/mo",
+      "hasFreeTier": true,
+      "website": "https://invideo.io",
+      "pros": [
+        "Turns a single prompt into a complete edited video",
+        "Large stock footage and template library",
+        "Good for YouTube and explainer-style videos"
+      ],
+      "cons": [
+        "Fully automated output often needs manual polish",
+        "Free tier includes a watermark"
+      ],
+      "bestFor": "Creators who want a full draft video from one text prompt.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "elevenlabs",
+      "name": "ElevenLabs",
+      "maker": "ElevenLabs",
+      "categories": [
+        "voice-audio"
+      ],
+      "tagline": "AI text-to-speech and voice cloning known for highly realistic voices.",
+      "pricing": "Free plan available with a monthly character limit; paid plans from $5/mo",
+      "hasFreeTier": true,
+      "website": "https://elevenlabs.io",
+      "pros": [
+        "Extremely realistic, natural-sounding voices",
+        "Supports voice cloning and dozens of languages",
+        "Developer-friendly API access"
+      ],
+      "cons": [
+        "Free tier character limit is fairly small",
+        "Voice cloning raises consent and ethics considerations"
+      ],
+      "bestFor": "Podcasters, video creators, and developers needing realistic narration.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "murf-ai",
+      "name": "Murf AI",
+      "maker": "Murf",
+      "categories": [
+        "voice-audio",
+        "presentations"
+      ],
+      "tagline": "AI voiceover platform aimed at presentations, e-learning, and marketing videos.",
+      "pricing": "Free plan available; paid plans from $19/mo",
+      "hasFreeTier": true,
+      "website": "https://murf.ai",
+      "pros": [
+        "Easy-to-use studio for syncing voice to video or slides",
+        "Wide voice and language library",
+        "Good fit for corporate and e-learning content"
+      ],
+      "cons": [
+        "Voices are slightly less natural on emotional delivery",
+        "Free tier limited to short, watermark-free exports"
+      ],
+      "bestFor": "E-learning and corporate video voiceovers.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "suno",
+      "name": "Suno",
+      "maker": "Suno",
+      "categories": [
+        "voice-audio"
+      ],
+      "tagline": "Generates full songs, complete with vocals and instrumentation, from a text prompt.",
+      "pricing": "Free plan available; paid plans from $10/mo",
+      "hasFreeTier": true,
+      "website": "https://suno.com",
+      "pros": [
+        "Creates complete songs with lyrics and vocals, not just instrumentals",
+        "Wide range of genres and styles supported",
+        "Free tier is usable for casual experimentation"
+      ],
+      "cons": [
+        "Commercial usage rights depend on your plan tier",
+        "Longer or highly structured songs are harder to control"
+      ],
+      "bestFor": "Quickly generating original music and songs from a prompt.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "udio",
+      "name": "Udio",
+      "maker": "Udio",
+      "categories": [
+        "voice-audio"
+      ],
+      "tagline": "An AI music generator focused on high-fidelity, radio-quality song creation.",
+      "pricing": "Free plan available; paid plans from $10/mo",
+      "hasFreeTier": true,
+      "website": "https://www.udio.com",
+      "pros": [
+        "High audio fidelity compared to many competitors",
+        "Good prompt control over genre and mood",
+        "Active community sharing prompts and results"
+      ],
+      "cons": [
+        "Free tier generations are limited per month",
+        "Ongoing legal questions around AI-generated music and rights"
+      ],
+      "bestFor": "Creators wanting polished, radio-quality AI-generated music.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "descript",
+      "name": "Descript",
+      "maker": "Descript",
+      "categories": [
+        "voice-audio",
+        "video-generation"
+      ],
+      "tagline": "Edit audio and video by editing text — transcript-based editing with AI voice cloning.",
+      "pricing": "Free plan available; paid plans from $12/mo",
+      "hasFreeTier": true,
+      "website": "https://www.descript.com",
+      "pros": [
+        "Edit video/audio by deleting words in a transcript",
+        "Overdub feature can fix flubbed lines with your cloned voice",
+        "Great for podcast and interview editing"
+      ],
+      "cons": [
+        "Free tier has limited transcription minutes",
+        "Less suited to highly stylized video editing"
+      ],
+      "bestFor": "Podcasters and video editors who prefer editing via transcript.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "resemble-ai",
+      "name": "Resemble AI",
+      "maker": "Resemble AI",
+      "categories": [
+        "voice-audio"
+      ],
+      "tagline": "Real-time AI voice cloning and text-to-speech built for developers.",
+      "pricing": "Free trial credits; usage-based pricing after",
+      "hasFreeTier": true,
+      "website": "https://www.resemble.ai",
+      "pros": [
+        "Real-time voice conversion for live applications",
+        "Strong API and developer documentation",
+        "Good for embedding voice AI into products"
+      ],
+      "cons": [
+        "More developer-oriented than plug-and-play",
+        "No flat free tier for ongoing use"
+      ],
+      "bestFor": "Developers embedding custom voice AI into their own products.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "wellsaid-labs",
+      "name": "WellSaid Labs",
+      "maker": "WellSaid Labs",
+      "categories": [
+        "voice-audio"
+      ],
+      "tagline": "Enterprise text-to-speech platform with a library of studio-quality AI voices.",
+      "pricing": "No permanent free tier; custom enterprise pricing",
+      "hasFreeTier": false,
+      "website": "https://wellsaidlabs.com",
+      "pros": [
+        "Studio-quality voices tuned for corporate narration",
+        "Strong focus on enterprise compliance and licensing",
+        "Consistent voice quality across long scripts"
+      ],
+      "cons": [
+        "Pricing aimed at enterprise budgets, not individuals",
+        "No self-serve free tier"
+      ],
+      "bestFor": "Enterprises needing licensed, studio-quality narration at scale.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "github-copilot",
+      "name": "GitHub Copilot",
+      "maker": "GitHub (Microsoft)",
+      "categories": [
+        "coding"
+      ],
+      "tagline": "AI pair programmer that autocompletes and explains code inside your editor.",
+      "pricing": "Free tier for individuals; paid plans from $10/mo",
+      "hasFreeTier": true,
+      "website": "https://github.com/features/copilot",
+      "pros": [
+        "Deep integration with VS Code and JetBrains IDEs",
+        "Strong autocomplete and chat-based code explanations",
+        "Free tier available for individual developers"
+      ],
+      "cons": [
+        "Best experience tied to the Microsoft/GitHub ecosystem",
+        "Can suggest outdated or insecure patterns without review"
+      ],
+      "bestFor": "Developers wanting inline autocomplete directly in their IDE.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "cursor",
+      "name": "Cursor",
+      "maker": "Anysphere",
+      "categories": [
+        "coding",
+        "app-builders"
+      ],
+      "tagline": "An AI-first code editor built around chat, autocomplete, and codebase-aware edits.",
+      "pricing": "Free Hobby tier available; Pro from $20/mo",
+      "hasFreeTier": true,
+      "website": "https://www.cursor.com",
+      "pros": [
+        "Deep codebase-aware chat and multi-file editing",
+        "Fast, high-quality autocomplete",
+        "Popular among professional developers for full projects"
+      ],
+      "cons": [
+        "Free tier has limited premium model requests",
+        "A separate editor to install rather than an extension"
+      ],
+      "bestFor": "Developers building full projects with heavy AI assistance.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "windsurf",
+      "name": "Windsurf",
+      "maker": "Windsurf (formerly Codeium)",
+      "categories": [
+        "coding",
+        "app-builders"
+      ],
+      "tagline": "An agent-powered AI IDE built for developer flow, with autonomous multi-step coding.",
+      "pricing": "Free plan available; paid plans from $15/mo",
+      "hasFreeTier": true,
+      "website": "https://windsurf.com",
+      "pros": [
+        "Agentic \"Cascade\" flow can complete multi-step coding tasks",
+        "Usable free tier for individual developers",
+        "Fast, responsive autocomplete"
+      ],
+      "cons": [
+        "Newer product with a smaller community than Copilot",
+        "Advanced agent features are best on paid tiers"
+      ],
+      "bestFor": "Developers who want an AI agent handling multi-step coding tasks.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "claude-code",
+      "name": "Claude Code",
+      "maker": "Anthropic",
+      "categories": [
+        "coding"
+      ],
+      "tagline": "A terminal-based coding agent that can plan, write, and run code autonomously.",
+      "pricing": "Included with Claude Pro/Max plans, from $20/mo",
+      "hasFreeTier": false,
+      "website": "https://www.anthropic.com/claude-code",
+      "pros": [
+        "Handles long, multi-step coding tasks with less hand-holding",
+        "Works directly in the terminal alongside existing tools",
+        "Strong reasoning on complex refactors"
+      ],
+      "cons": [
+        "Requires a paid Claude subscription",
+        "Command-line interface is less approachable for beginners"
+      ],
+      "bestFor": "Experienced developers comfortable working from the terminal.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "replit-agent",
+      "name": "Replit Agent",
+      "maker": "Replit",
+      "categories": [
+        "coding",
+        "app-builders"
+      ],
+      "tagline": "An AI agent that builds and deploys full applications from a text description.",
+      "pricing": "No permanent free tier; usage-based plans from $25/mo",
+      "hasFreeTier": false,
+      "website": "https://replit.com/ai",
+      "pros": [
+        "Goes from idea to a deployed app in one flow",
+        "No local setup required, runs entirely in the browser",
+        "Good for rapid prototyping"
+      ],
+      "cons": [
+        "Usage-based pricing can add up for larger projects",
+        "Generated code sometimes needs manual cleanup"
+      ],
+      "bestFor": "Rapid prototyping of full applications without local setup.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "tabnine",
+      "name": "Tabnine",
+      "maker": "Tabnine",
+      "categories": [
+        "coding"
+      ],
+      "tagline": "A privacy-focused AI code completion tool with self-hosting options.",
+      "pricing": "Free plan available; paid plans from $9/mo",
+      "hasFreeTier": true,
+      "website": "https://www.tabnine.com",
+      "pros": [
+        "Strong focus on code privacy and IP protection",
+        "Can be self-hosted for enterprise compliance needs",
+        "Works across a wide range of IDEs"
+      ],
+      "cons": [
+        "Autocomplete quality can trail Copilot or Cursor",
+        "Enterprise self-hosting requires more setup effort"
+      ],
+      "bestFor": "Enterprises with strict code-privacy or compliance requirements.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "codeium",
+      "name": "Codeium",
+      "maker": "Exafunction",
+      "categories": [
+        "coding"
+      ],
+      "tagline": "A free AI code completion and chat plugin supporting dozens of languages and IDEs.",
+      "pricing": "Free for individuals; team plans available",
+      "hasFreeTier": true,
+      "website": "https://codeium.com",
+      "pros": [
+        "Generous free tier for individual developers",
+        "Broad IDE and language support",
+        "Fast autocomplete suggestions"
+      ],
+      "cons": [
+        "Team/enterprise features require a paid plan",
+        "Chat capabilities are less advanced than dedicated AI editors"
+      ],
+      "bestFor": "Individual developers wanting free, broad-language autocomplete.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "notion-ai",
+      "name": "Notion AI",
+      "maker": "Notion Labs",
+      "categories": [
+        "productivity",
+        "writing"
+      ],
+      "tagline": "AI features built directly into the Notion workspace for notes, docs, and databases.",
+      "pricing": "Add-on from $8-10/user/mo on top of a Notion plan",
+      "hasFreeTier": false,
+      "website": "https://www.notion.so/product/ai",
+      "pros": [
+        "Works natively inside pages and databases you already use",
+        "Good for summarizing notes and meeting content",
+        "Answers questions across your whole workspace"
+      ],
+      "cons": [
+        "No standalone free tier for AI features",
+        "Requires you to already use Notion as your workspace"
+      ],
+      "bestFor": "Teams already using Notion who want built-in AI search and writing.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "otter-ai",
+      "name": "Otter.ai",
+      "maker": "Otter.ai",
+      "categories": [
+        "productivity",
+        "voice-audio"
+      ],
+      "tagline": "AI meeting assistant that transcribes, summarizes, and extracts action items.",
+      "pricing": "Free plan available with limited minutes; paid plans from $8.33/mo",
+      "hasFreeTier": true,
+      "website": "https://otter.ai",
+      "pros": [
+        "Real-time transcription for Zoom, Meet, and Teams",
+        "Automatic summaries and action-item extraction",
+        "Usable free tier for occasional meetings"
+      ],
+      "cons": [
+        "Free tier monthly transcription minutes are limited",
+        "Accuracy drops with heavy accents or crosstalk"
+      ],
+      "bestFor": "Teams wanting automatic meeting notes and action items.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "fireflies-ai",
+      "name": "Fireflies.ai",
+      "maker": "Fireflies.ai",
+      "categories": [
+        "productivity"
+      ],
+      "tagline": "Records, transcribes, and summarizes meetings across most video-call platforms.",
+      "pricing": "Free plan available; paid plans from $10/user/mo",
+      "hasFreeTier": true,
+      "website": "https://fireflies.ai",
+      "pros": [
+        "Wide integration with Zoom, Meet, Teams, and more",
+        "Searchable transcript library across all past meetings",
+        "Free tier covers light, occasional use"
+      ],
+      "cons": [
+        "Deeper analytics and CRM integrations need a paid plan",
+        "Summary quality varies with meeting audio clarity"
+      ],
+      "bestFor": "Sales and client-facing teams wanting searchable meeting history.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "motion",
+      "name": "Motion",
+      "maker": "Motion",
+      "categories": [
+        "productivity"
+      ],
+      "tagline": "An AI calendar and task manager that automatically schedules your work.",
+      "pricing": "No permanent free tier; plans start around $19/mo (annual)",
+      "hasFreeTier": false,
+      "website": "https://www.usemotion.com",
+      "pros": [
+        "Automatically re-schedules tasks around meetings and deadlines",
+        "Combines calendar, tasks, and projects in one view",
+        "Reduces manual daily planning effort"
+      ],
+      "cons": [
+        "No free tier to try before committing",
+        "Can feel rigid if you prefer manually controlling your schedule"
+      ],
+      "bestFor": "Busy professionals who want their calendar auto-managed.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "reclaim-ai",
+      "name": "Reclaim AI",
+      "maker": "Reclaim",
+      "categories": [
+        "productivity"
+      ],
+      "tagline": "An AI scheduling assistant that protects focus time on your calendar automatically.",
+      "pricing": "Free plan available; paid plans from $8/user/mo",
+      "hasFreeTier": true,
+      "website": "https://reclaim.ai",
+      "pros": [
+        "Usable free tier for individuals",
+        "Automatically defends deep-work time blocks",
+        "Syncs tasks, habits, and meetings into one calendar"
+      ],
+      "cons": [
+        "Team-wide features require a paid plan",
+        "Requires trust in automated calendar changes"
+      ],
+      "bestFor": "Individuals wanting protected focus time without manual calendar tetris.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "clickup-ai",
+      "name": "ClickUp AI",
+      "maker": "ClickUp",
+      "categories": [
+        "productivity"
+      ],
+      "tagline": "AI features layered onto ClickUp's all-in-one project management platform.",
+      "pricing": "Add-on available on paid ClickUp plans; ClickUp free plan available",
+      "hasFreeTier": true,
+      "website": "https://clickup.com/ai",
+      "pros": [
+        "Built into a full project management suite you may already use",
+        "Can summarize tasks, docs, and comment threads",
+        "Generous free tier for the base ClickUp platform"
+      ],
+      "cons": [
+        "AI features specifically require a paid add-on",
+        "Platform has a learning curve given its breadth of features"
+      ],
+      "bestFor": "Teams already using ClickUp for project management.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "superhuman",
+      "name": "Superhuman",
+      "maker": "Superhuman",
+      "categories": [
+        "productivity"
+      ],
+      "tagline": "An AI-powered email client built for speed, with automatic triage and drafting.",
+      "pricing": "No permanent free tier; plans start around $25/user/mo",
+      "hasFreeTier": false,
+      "website": "https://superhuman.com",
+      "pros": [
+        "Very fast, keyboard-driven interface",
+        "AI triage automatically sorts and prioritizes your inbox",
+        "AI-written draft replies save time on routine emails"
+      ],
+      "cons": [
+        "Premium pricing compared to standard email clients",
+        "Overkill for people with low email volume"
+      ],
+      "bestFor": "High-email-volume professionals wanting a faster inbox.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "perplexity",
+      "name": "Perplexity",
+      "maker": "Perplexity AI",
+      "categories": [
+        "research",
+        "chatbots"
+      ],
+      "tagline": "An AI-powered answer engine that cites sources for every response.",
+      "pricing": "Free plan available; Pro $20/mo",
+      "hasFreeTier": true,
+      "website": "https://www.perplexity.ai",
+      "pros": [
+        "Always shows sources and citations for claims",
+        "Great for up-to-date research and fact-checking",
+        "Focus modes for academic, Reddit, or news-only search"
+      ],
+      "cons": [
+        "Less suited to creative writing than dedicated writing tools",
+        "Best models require the Pro plan"
+      ],
+      "bestFor": "Fast, cited research and fact-checking instead of manual searching.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "notebooklm",
+      "name": "NotebookLM",
+      "maker": "Google",
+      "categories": [
+        "research",
+        "education"
+      ],
+      "tagline": "An AI research assistant that only answers from the sources you upload.",
+      "pricing": "Free to use, with usage limits",
+      "hasFreeTier": true,
+      "website": "https://notebooklm.google",
+      "pros": [
+        "Answers are grounded only in your uploaded sources, reducing hallucination",
+        "Free to use for most individual needs",
+        "Generates audio-overview summaries of your documents"
+      ],
+      "cons": [
+        "Less useful for open-ended, general questions",
+        "Upload limits apply per notebook"
+      ],
+      "bestFor": "Researchers and students who need answers grounded in specific documents.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "elicit",
+      "name": "Elicit",
+      "maker": "Elicit",
+      "categories": [
+        "research"
+      ],
+      "tagline": "An AI research assistant that finds and summarizes findings across academic papers.",
+      "pricing": "Free plan available; paid plans from $12/mo",
+      "hasFreeTier": true,
+      "website": "https://elicit.com",
+      "pros": [
+        "Purpose-built for academic literature reviews",
+        "Extracts and compares findings across many papers at once",
+        "Usable free tier for smaller research tasks"
+      ],
+      "cons": [
+        "Less useful outside academic and scientific research",
+        "Summaries still require expert verification"
+      ],
+      "bestFor": "Academic researchers conducting literature reviews.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "consensus",
+      "name": "Consensus",
+      "maker": "Consensus",
+      "categories": [
+        "research",
+        "education"
+      ],
+      "tagline": "An AI search engine that answers questions using only peer-reviewed research.",
+      "pricing": "Free plan available; Premium from $8.99/mo",
+      "hasFreeTier": true,
+      "website": "https://consensus.app",
+      "pros": [
+        "Draws answers specifically from peer-reviewed papers",
+        "Consensus meter shows how much agreement exists on a topic",
+        "Good starting point before deeper academic research"
+      ],
+      "cons": [
+        "Narrower scope than general-purpose research tools",
+        "Depth of full-text access requires a paid plan"
+      ],
+      "bestFor": "Quickly checking what peer-reviewed research says on a topic.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "you-com",
+      "name": "You.com",
+      "maker": "You.com",
+      "categories": [
+        "research",
+        "chatbots"
+      ],
+      "tagline": "An AI search assistant that blends web results with multiple chat models.",
+      "pricing": "Free plan available; Pro from $15/mo",
+      "hasFreeTier": true,
+      "website": "https://you.com",
+      "pros": [
+        "Lets you switch between multiple underlying AI models",
+        "Combines live web search with chat in one interface",
+        "Usable free tier for everyday searches"
+      ],
+      "cons": [
+        "Interface can feel busier than a simple search engine",
+        "Advanced features and model choice need a paid plan"
+      ],
+      "bestFor": "Users who want to compare answers from multiple AI models in one place.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "genspark",
+      "name": "Genspark",
+      "maker": "Genspark",
+      "categories": [
+        "research"
+      ],
+      "tagline": "An AI agent that automatically researches a topic and builds a summarized page.",
+      "pricing": "Free plan available; paid plans for higher usage",
+      "hasFreeTier": true,
+      "website": "https://www.genspark.ai",
+      "pros": [
+        "Automatically compiles multi-source research into one page",
+        "Useful for quick topic overviews before deeper research",
+        "Free tier covers casual research needs"
+      ],
+      "cons": [
+        "Less control over sources compared to manual research",
+        "Newer product with a smaller track record"
+      ],
+      "bestFor": "Getting a fast, multi-source overview of an unfamiliar topic.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "scispace",
+      "name": "SciSpace",
+      "maker": "SciSpace",
+      "categories": [
+        "research",
+        "education"
+      ],
+      "tagline": "An AI tool for reading, understanding, and summarizing scientific papers.",
+      "pricing": "Free plan available; Premium from $12/mo",
+      "hasFreeTier": true,
+      "website": "https://scispace.com",
+      "pros": [
+        "Explains complex scientific text in plain language",
+        "Extracts key figures, tables, and citations from papers",
+        "Free tier usable for occasional paper lookups"
+      ],
+      "cons": [
+        "Focused specifically on academic and scientific content",
+        "Full-library search features require a paid plan"
+      ],
+      "bestFor": "Students and researchers who need to quickly digest scientific papers.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "surfer-seo",
+      "name": "Surfer SEO",
+      "maker": "Surfer",
+      "categories": [
+        "seo-marketing"
+      ],
+      "tagline": "A data-driven content optimizer that scores your writing against top-ranking pages.",
+      "pricing": "No permanent free tier; plans start around $79/mo",
+      "hasFreeTier": false,
+      "website": "https://surferseo.com",
+      "pros": [
+        "Analyzes hundreds of ranking factors from top competitors",
+        "Real-time content score as you write",
+        "Integrates with Google Docs and WordPress"
+      ],
+      "cons": [
+        "No free tier to test before subscribing",
+        "Best value requires publishing content regularly"
+      ],
+      "bestFor": "Teams publishing long-form SEO content on a regular schedule.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "semrush",
+      "name": "Semrush",
+      "maker": "Semrush",
+      "categories": [
+        "seo-marketing"
+      ],
+      "tagline": "A comprehensive SEO and competitive research platform with AI-assisted features.",
+      "pricing": "No permanent free tier; plans start around $139.95/mo",
+      "hasFreeTier": false,
+      "website": "https://www.semrush.com",
+      "pros": [
+        "Extremely comprehensive keyword and competitor data",
+        "Covers SEO, PPC, and content research in one platform",
+        "Trusted, long-standing tool in the SEO industry"
+      ],
+      "cons": [
+        "Expensive for solo users or very small businesses",
+        "Steep learning curve given the breadth of features"
+      ],
+      "bestFor": "Serious SEO and competitive research at an agency or in-house team level.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "ahrefs",
+      "name": "Ahrefs",
+      "maker": "Ahrefs",
+      "categories": [
+        "seo-marketing"
+      ],
+      "tagline": "An SEO toolset known for its backlink index and free keyword tools.",
+      "pricing": "Free tools available; paid plans start around $29/mo",
+      "hasFreeTier": true,
+      "website": "https://ahrefs.com",
+      "pros": [
+        "Free tools cover basic keyword and backlink lookups",
+        "One of the largest backlink indexes in the industry",
+        "Clear, well-organized reporting dashboards"
+      ],
+      "cons": [
+        "Full platform access requires a paid plan",
+        "Can be overwhelming for complete SEO beginners"
+      ],
+      "bestFor": "Beginners wanting free keyword and backlink data, with room to grow.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "marketmuse",
+      "name": "MarketMuse",
+      "maker": "MarketMuse",
+      "categories": [
+        "seo-marketing"
+      ],
+      "tagline": "An AI content planning tool focused on building topical authority.",
+      "pricing": "Free plan available; paid plans start around $99/mo",
+      "hasFreeTier": true,
+      "website": "https://www.marketmuse.com",
+      "pros": [
+        "Strong at mapping content gaps and topic clusters",
+        "Free tier available for light research",
+        "Helps plan a content strategy, not just single articles"
+      ],
+      "cons": [
+        "Deeper strategic features require a paid plan",
+        "Less focused on real-time on-page writing suggestions"
+      ],
+      "bestFor": "Planning topical content clusters and long-term SEO strategy.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "frase",
+      "name": "Frase",
+      "maker": "Frase",
+      "categories": [
+        "seo-marketing",
+        "writing"
+      ],
+      "tagline": "An affordable AI tool for researching and outlining SEO-optimized content.",
+      "pricing": "Paid plans start around $15/mo",
+      "hasFreeTier": false,
+      "website": "https://www.frase.io",
+      "pros": [
+        "More affordable than Surfer or MarketMuse",
+        "Fast SERP-based outline generation",
+        "Good for teams writing content on a budget"
+      ],
+      "cons": [
+        "No free tier available",
+        "Less polished interface than premium competitors"
+      ],
+      "bestFor": "Budget-conscious teams that still want SERP-informed outlines.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "clearscope",
+      "name": "Clearscope",
+      "maker": "Clearscope",
+      "categories": [
+        "seo-marketing"
+      ],
+      "tagline": "A premium content optimization tool that scores writing in real time inside Google Docs.",
+      "pricing": "No permanent free tier; custom pricing, typically $170+/mo",
+      "hasFreeTier": false,
+      "website": "https://www.clearscope.io",
+      "pros": [
+        "Clean, simple scoring that's easy for writers to follow",
+        "Works directly inside Google Docs and WordPress",
+        "Well-regarded for optimizing human-written content"
+      ],
+      "cons": [
+        "One of the more expensive tools in this category",
+        "No free tier or low-cost entry point"
+      ],
+      "bestFor": "Established content teams optimizing already strong writing.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "adcreative-ai",
+      "name": "AdCreative.ai",
+      "maker": "AdCreative.ai",
+      "categories": [
+        "seo-marketing"
+      ],
+      "tagline": "Generates ad creatives and banners optimized for conversion using AI.",
+      "pricing": "Paid plans start around $29/mo",
+      "hasFreeTier": false,
+      "website": "https://www.adcreative.ai",
+      "pros": [
+        "Generates many ad variants quickly for A/B testing",
+        "Conversion-score predictions for each creative",
+        "Templates for Facebook, Google, and other ad networks"
+      ],
+      "cons": [
+        "No free tier to test before committing",
+        "Best value for businesses running ads frequently"
+      ],
+      "bestFor": "Businesses running frequent paid social or search ad campaigns.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "lovable",
+      "name": "Lovable",
+      "maker": "Lovable",
+      "categories": [
+        "app-builders"
+      ],
+      "tagline": "Build full-stack web apps from a plain-English description.",
+      "pricing": "Free plan available; paid plans from $25/mo",
+      "hasFreeTier": true,
+      "website": "https://lovable.dev",
+      "pros": [
+        "Fast from idea to a working prototype",
+        "Generates a full front end and back end, not just a mockup",
+        "Usable free tier to try before paying"
+      ],
+      "cons": [
+        "Complex custom logic still benefits from developer review",
+        "Costs scale with usage on larger projects"
+      ],
+      "bestFor": "Founders prototyping a full-stack MVP without hiring developers.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "bolt-new",
+      "name": "Bolt.new",
+      "maker": "StackBlitz",
+      "categories": [
+        "app-builders",
+        "coding"
+      ],
+      "tagline": "An in-browser AI tool that builds and runs full-stack apps instantly.",
+      "pricing": "Free plan available; paid plans from $20/mo",
+      "hasFreeTier": true,
+      "website": "https://bolt.new",
+      "pros": [
+        "Runs entirely in the browser with no local setup",
+        "Generates and previews full applications quickly",
+        "Usable free tier for smaller projects"
+      ],
+      "cons": [
+        "Heavier or more complex apps can hit performance limits",
+        "Fine-tuned control needs manual code edits"
+      ],
+      "bestFor": "Building and previewing full-stack app ideas directly in the browser.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "v0",
+      "name": "v0 by Vercel",
+      "maker": "Vercel",
+      "categories": [
+        "app-builders",
+        "design"
+      ],
+      "tagline": "Generates polished, ready-to-use UI components and pages from a text prompt.",
+      "pricing": "Free plan available; paid plans from $20/mo",
+      "hasFreeTier": true,
+      "website": "https://v0.dev",
+      "pros": [
+        "Produces clean, modern UI code using popular frameworks",
+        "Generated components are easy to drop into real projects",
+        "Usable free tier for individual experimentation"
+      ],
+      "cons": [
+        "Focused on UI rather than full back-end logic",
+        "Best integrated into a broader Vercel/Next.js workflow"
+      ],
+      "bestFor": "Quickly generating polished UI components for a real codebase.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "framer-ai",
+      "name": "Framer AI",
+      "maker": "Framer",
+      "categories": [
+        "app-builders",
+        "design"
+      ],
+      "tagline": "Generates a complete, editable website design from a text prompt.",
+      "pricing": "Free plan available; paid plans from $5/mo",
+      "hasFreeTier": true,
+      "website": "https://www.framer.com/ai",
+      "pros": [
+        "Produces genuinely polished, professional site designs",
+        "Fully visual editor after generation, no code required",
+        "Usable free tier for a single published site"
+      ],
+      "cons": [
+        "Less flexible than hand-coding for highly custom logic",
+        "Advanced features need a paid plan"
+      ],
+      "bestFor": "Designers and founders wanting a polished marketing site fast.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "wix-adi",
+      "name": "Wix ADI",
+      "maker": "Wix",
+      "categories": [
+        "app-builders"
+      ],
+      "tagline": "Wix's AI website builder that designs a full site from a short questionnaire.",
+      "pricing": "Free plan available; premium plans from $17/mo",
+      "hasFreeTier": true,
+      "website": "https://www.wix.com",
+      "pros": [
+        "Extremely beginner-friendly, no design experience needed",
+        "Large ecosystem of apps and integrations",
+        "Free tier lets you build and preview before paying"
+      ],
+      "cons": [
+        "Free tier includes Wix branding and ads",
+        "Less design flexibility than a code-based builder"
+      ],
+      "bestFor": "Complete beginners wanting a simple small-business website.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "durable",
+      "name": "Durable",
+      "maker": "Durable",
+      "categories": [
+        "app-builders"
+      ],
+      "tagline": "Generates a complete small-business website, plus basic CRM tools, in under a minute.",
+      "pricing": "Free trial; paid plans from $12/mo",
+      "hasFreeTier": false,
+      "website": "https://durable.co",
+      "pros": [
+        "Extremely fast initial site generation",
+        "Bundles light CRM and invoicing tools alongside the website",
+        "Good fit for local service businesses"
+      ],
+      "cons": [
+        "Design customization is more limited than dedicated builders",
+        "No permanent free tier after the trial"
+      ],
+      "bestFor": "Local service businesses wanting a website live in minutes.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "softr",
+      "name": "Softr",
+      "maker": "Softr",
+      "categories": [
+        "app-builders"
+      ],
+      "tagline": "Turns spreadsheets and databases into functional web apps without code.",
+      "pricing": "Free plan available; paid plans from $59/mo",
+      "hasFreeTier": true,
+      "website": "https://www.softr.io",
+      "pros": [
+        "Great for turning Airtable or Google Sheets into a real app",
+        "No-code approach accessible to non-developers",
+        "Usable free tier for small internal tools"
+      ],
+      "cons": [
+        "Best suited to data-driven apps rather than custom design",
+        "Paid plans needed for more users or advanced features"
+      ],
+      "bestFor": "Turning a spreadsheet into a client portal or internal tool.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "figma-ai",
+      "name": "Figma AI",
+      "maker": "Figma",
+      "categories": [
+        "design"
+      ],
+      "tagline": "AI features built into Figma for generating and editing UI designs.",
+      "pricing": "Figma's free plan includes some AI features; full features on paid plans",
+      "hasFreeTier": true,
+      "website": "https://www.figma.com/ai",
+      "pros": [
+        "Built directly into the design tool teams already use",
+        "Speeds up repetitive design tasks like renaming layers",
+        "Collaborative, real-time editing with a team"
+      ],
+      "cons": [
+        "Most powerful AI features are on paid Figma plans",
+        "Still requires design skill to get polished results"
+      ],
+      "bestFor": "Design teams already working in Figma who want AI-assisted speed.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "canva-magic-studio",
+      "name": "Canva Magic Studio",
+      "maker": "Canva",
+      "categories": [
+        "design",
+        "presentations",
+        "image-generation"
+      ],
+      "tagline": "A suite of AI design tools built into Canva for images, video, and presentations.",
+      "pricing": "Free plan available; Canva Pro from $12.99/mo",
+      "hasFreeTier": true,
+      "website": "https://www.canva.com/magic-studio",
+      "pros": [
+        "Huge free tier covering most everyday design needs",
+        "Combines image generation, editing, and templates in one place",
+        "Extremely approachable for non-designers"
+      ],
+      "cons": [
+        "Output can look templated without extra customization",
+        "Best AI features reserved for the Pro plan"
+      ],
+      "bestFor": "Non-designers who need quick, professional-looking visuals.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "google-stitch",
+      "name": "Google Stitch",
+      "maker": "Google",
+      "categories": [
+        "design",
+        "app-builders"
+      ],
+      "tagline": "Google's free AI tool for generating UI designs and front-end code from a prompt.",
+      "pricing": "Free",
+      "hasFreeTier": true,
+      "website": "https://stitch.withgoogle.com",
+      "pros": [
+        "Completely free to use",
+        "Generates both visual designs and usable front-end code",
+        "Good starting point for early-stage product ideas"
+      ],
+      "cons": [
+        "Less mature than established design tools",
+        "Best for early concepts rather than final production design"
+      ],
+      "bestFor": "Early-stage founders sketching a product UI for free.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "uizard",
+      "name": "Uizard",
+      "maker": "Uizard",
+      "categories": [
+        "design",
+        "app-builders"
+      ],
+      "tagline": "Turns sketches, screenshots, or text prompts into editable app and web mockups.",
+      "pricing": "Free plan available; paid plans from $12/mo",
+      "hasFreeTier": true,
+      "website": "https://uizard.io",
+      "pros": [
+        "Can convert a hand-drawn sketch into a digital mockup",
+        "Fast way to get from idea to clickable prototype",
+        "Usable free tier for individual projects"
+      ],
+      "cons": [
+        "Design output is more basic than Figma-level polish",
+        "Best for early prototyping, not final UI design"
+      ],
+      "bestFor": "Turning rough sketches into a clickable prototype quickly.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "galileo-ai",
+      "name": "Galileo AI",
+      "maker": "Galileo",
+      "categories": [
+        "design"
+      ],
+      "tagline": "Generates editable, high-fidelity UI designs directly inside Figma from a prompt.",
+      "pricing": "Paid plans, pricing available on request",
+      "hasFreeTier": false,
+      "website": "https://www.usegalileo.ai",
+      "pros": [
+        "Generates genuinely high-fidelity, realistic UI designs",
+        "Output lands directly as editable layers in Figma",
+        "Saves significant time on first-draft screen design"
+      ],
+      "cons": [
+        "No public free tier",
+        "Best results still benefit from a designer's refinement"
+      ],
+      "bestFor": "Product designers wanting a fast, high-fidelity first draft.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "looka",
+      "name": "Looka",
+      "maker": "Looka",
+      "categories": [
+        "design"
+      ],
+      "tagline": "An AI logo and brand identity generator for small businesses.",
+      "pricing": "Free logo previews; paid packages from $20 one-time",
+      "hasFreeTier": true,
+      "website": "https://looka.com",
+      "pros": [
+        "Quick, affordable way to get a professional-looking logo",
+        "Generates a matching brand kit, not just a logo",
+        "Free preview before you pay for the files"
+      ],
+      "cons": [
+        "Less unique than a custom design from a human designer",
+        "One-time purchase model rather than ongoing design support"
+      ],
+      "bestFor": "New businesses needing an affordable logo and brand kit fast.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "recraft",
+      "name": "Recraft",
+      "maker": "Recraft",
+      "categories": [
+        "design",
+        "image-generation"
+      ],
+      "tagline": "An AI design tool for generating vector graphics, icons, and brand-consistent images.",
+      "pricing": "Free plan available; paid plans from $10/mo",
+      "hasFreeTier": true,
+      "website": "https://www.recraft.ai",
+      "pros": [
+        "One of the few AI tools that generates true vector graphics",
+        "Good for icon sets and consistent brand styles",
+        "Usable free tier for smaller projects"
+      ],
+      "cons": [
+        "Less well-known than larger image-generation platforms",
+        "Vector quality varies with prompt complexity"
+      ],
+      "bestFor": "Generating icon sets and vector graphics in a consistent style.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "zapier",
+      "name": "Zapier",
+      "maker": "Zapier",
+      "categories": [
+        "automation"
+      ],
+      "tagline": "The most widely used no-code automation platform connecting thousands of apps.",
+      "pricing": "Free plan available; paid plans from $19.99/mo",
+      "hasFreeTier": true,
+      "website": "https://zapier.com",
+      "pros": [
+        "Connects to thousands of apps out of the box",
+        "Usable free tier for simple, low-volume automations",
+        "Large library of pre-built templates"
+      ],
+      "cons": [
+        "Costs scale quickly with higher automation volume",
+        "Complex multi-step logic can get expensive"
+      ],
+      "bestFor": "Connecting everyday business apps without writing code.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "make",
+      "name": "Make",
+      "maker": "Make (formerly Integromat)",
+      "categories": [
+        "automation"
+      ],
+      "tagline": "A visual automation builder for more complex, multi-step workflows.",
+      "pricing": "Free plan available; paid plans from $9/mo",
+      "hasFreeTier": true,
+      "website": "https://www.make.com",
+      "pros": [
+        "Visual workflow builder handles complex branching logic well",
+        "More affordable than Zapier at higher automation volumes",
+        "Usable free tier to get started"
+      ],
+      "cons": [
+        "Steeper learning curve than simpler automation tools",
+        "Visual canvas can get cluttered on very large workflows"
+      ],
+      "bestFor": "Complex, branching automations at a lower cost than Zapier.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "n8n",
+      "name": "n8n",
+      "maker": "n8n",
+      "categories": [
+        "automation"
+      ],
+      "tagline": "A self-hostable, open-source workflow automation tool built for technical teams.",
+      "pricing": "Free if self-hosted; cloud plans from $20/mo",
+      "hasFreeTier": true,
+      "website": "https://n8n.io",
+      "pros": [
+        "Can be self-hosted for free with full data control",
+        "Open-source and highly extensible for developers",
+        "Good fit for GDPR-conscious or privacy-sensitive teams"
+      ],
+      "cons": [
+        "Self-hosting requires technical setup and maintenance",
+        "Less beginner-friendly than Zapier"
+      ],
+      "bestFor": "Technical teams wanting self-hosted, privacy-conscious automation.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "bardeen",
+      "name": "Bardeen",
+      "maker": "Bardeen",
+      "categories": [
+        "automation"
+      ],
+      "tagline": "A browser-based automation tool that can scrape and act on web pages directly.",
+      "pricing": "Free plan available; paid plans from $10/mo",
+      "hasFreeTier": true,
+      "website": "https://www.bardeen.ai",
+      "pros": [
+        "Runs automations directly in your browser",
+        "Good for scraping and acting on web page data",
+        "Usable free tier for lighter automation needs"
+      ],
+      "cons": [
+        "Limited to what's reachable from the browser",
+        "Smaller app integration library than Zapier or Make"
+      ],
+      "bestFor": "Automating repetitive browser-based tasks like data scraping.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "gumloop",
+      "name": "Gumloop",
+      "maker": "Gumloop",
+      "categories": [
+        "automation"
+      ],
+      "tagline": "An AI-native automation builder designed around AI agents as workflow steps.",
+      "pricing": "Free plan available; paid plans from $97/mo",
+      "hasFreeTier": true,
+      "website": "https://www.gumloop.com",
+      "pros": [
+        "Built specifically to chain AI steps into a workflow",
+        "Visual builder is approachable for non-developers",
+        "Usable free tier to test simple automations"
+      ],
+      "cons": [
+        "Paid plans are pricier than general-purpose automation tools",
+        "Smaller integration ecosystem than established players"
+      ],
+      "bestFor": "Building automations that rely heavily on AI reasoning steps.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "relay-app",
+      "name": "Relay.app",
+      "maker": "Relay.app",
+      "categories": [
+        "automation"
+      ],
+      "tagline": "An automation tool that combines AI steps with human approval checkpoints.",
+      "pricing": "Free plan available; paid plans from $18/mo",
+      "hasFreeTier": true,
+      "website": "https://relay.app",
+      "pros": [
+        "Lets a human review and approve AI actions before they run",
+        "Clean, modern interface that's easy to learn",
+        "Usable free tier for smaller workflows"
+      ],
+      "cons": [
+        "Smaller app integration library than more established tools",
+        "Newer product with a smaller community"
+      ],
+      "bestFor": "Teams wanting AI automation with a human-in-the-loop safety check.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "pipedream",
+      "name": "Pipedream",
+      "maker": "Pipedream",
+      "categories": [
+        "automation"
+      ],
+      "tagline": "A developer-focused automation platform that mixes visual workflows with custom code.",
+      "pricing": "Free plan available; paid plans from $29/mo",
+      "hasFreeTier": true,
+      "website": "https://pipedream.com",
+      "pros": [
+        "Lets you drop in custom code inside a visual workflow",
+        "Generous free tier for smaller projects",
+        "Fast, developer-friendly execution"
+      ],
+      "cons": [
+        "Less approachable for fully non-technical users",
+        "Documentation assumes some coding familiarity"
+      ],
+      "bestFor": "Developers wanting code-level control inside automated workflows.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "gamma",
+      "name": "Gamma",
+      "maker": "Gamma",
+      "categories": [
+        "presentations"
+      ],
+      "tagline": "Generates a complete, designed presentation from a topic or outline.",
+      "pricing": "Free plan available; paid plans from $8/mo",
+      "hasFreeTier": true,
+      "website": "https://gamma.app",
+      "pros": [
+        "Produces genuinely well-designed slides automatically",
+        "Usable free tier with a monthly credit allowance",
+        "Also works for documents and simple websites"
+      ],
+      "cons": [
+        "Deep manual design control is more limited than PowerPoint",
+        "Best templates and exports need a paid plan"
+      ],
+      "bestFor": "Quickly turning an outline into a polished presentation.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "beautiful-ai",
+      "name": "Beautiful.ai",
+      "maker": "Beautiful.ai",
+      "categories": [
+        "presentations"
+      ],
+      "tagline": "A presentation tool where AI-guided templates automatically keep slides well-designed.",
+      "pricing": "No permanent free tier; plans start around $12/mo",
+      "hasFreeTier": false,
+      "website": "https://www.beautiful.ai",
+      "pros": [
+        "Smart templates auto-adjust layout as you edit",
+        "Keeps a consistent, professional look across a whole deck",
+        "Good for teams without a dedicated designer"
+      ],
+      "cons": [
+        "No free tier, only a trial",
+        "Less flexible than a completely blank-canvas tool"
+      ],
+      "bestFor": "Teams wanting consistently well-designed decks without a designer.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "tome",
+      "name": "Tome",
+      "maker": "Tome",
+      "categories": [
+        "presentations"
+      ],
+      "tagline": "An AI-native format for narrative presentations and pitch decks.",
+      "pricing": "Free plan available; paid plans from $20/mo",
+      "hasFreeTier": true,
+      "website": "https://tome.app",
+      "pros": [
+        "Modern, narrative-style format beyond traditional slides",
+        "Good for pitch decks and interactive storytelling",
+        "Usable free tier to try the format"
+      ],
+      "cons": [
+        "Less familiar format for traditional corporate settings",
+        "Some advanced features need a paid plan"
+      ],
+      "bestFor": "Founders building interactive, narrative-style pitch decks.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "slidesai",
+      "name": "SlidesAI",
+      "maker": "SlidesAI",
+      "categories": [
+        "presentations"
+      ],
+      "tagline": "A Google Slides add-on that turns text into a formatted slide deck.",
+      "pricing": "Free plan available; paid plans from $9/mo",
+      "hasFreeTier": true,
+      "website": "https://www.slidesai.io",
+      "pros": [
+        "Works directly inside Google Slides you already use",
+        "Simple, low learning curve",
+        "Usable free tier for occasional decks"
+      ],
+      "cons": [
+        "Design quality is more basic than dedicated AI deck tools",
+        "Limited customization compared to Gamma or Beautiful.ai"
+      ],
+      "bestFor": "Quick slide generation for existing Google Slides users.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "plus-ai",
+      "name": "Plus AI",
+      "maker": "Plus AI",
+      "categories": [
+        "presentations"
+      ],
+      "tagline": "An AI presentation add-on built for Google Slides and PowerPoint.",
+      "pricing": "Free plan available; paid plans from $10/mo",
+      "hasFreeTier": true,
+      "website": "https://plusai.com",
+      "pros": [
+        "Works inside both Google Slides and PowerPoint",
+        "Good balance of automation and manual control",
+        "Usable free tier for lighter use"
+      ],
+      "cons": [
+        "Best content generation quality needs a paid plan",
+        "Design range is narrower than standalone AI deck tools"
+      ],
+      "bestFor": "Teams who want AI help without leaving PowerPoint or Slides.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "decktopus",
+      "name": "Decktopus",
+      "maker": "Decktopus",
+      "categories": [
+        "presentations"
+      ],
+      "tagline": "An AI presentation generator with a focus on sales and pitch decks.",
+      "pricing": "Free plan available; paid plans from $9.99/mo",
+      "hasFreeTier": true,
+      "website": "https://www.decktopus.com",
+      "pros": [
+        "Templates geared specifically toward sales and pitch content",
+        "Simple question-based flow to generate a first draft",
+        "Usable free tier to get started"
+      ],
+      "cons": [
+        "Fewer design styles than some competitors",
+        "Free tier includes export limitations"
+      ],
+      "bestFor": "Sales teams generating pitch decks quickly and consistently.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "intercom-fin",
+      "name": "Intercom Fin AI",
+      "maker": "Intercom",
+      "categories": [
+        "customer-support"
+      ],
+      "tagline": "An AI customer service agent that resolves support tickets automatically.",
+      "pricing": "Usage-based pricing on top of an Intercom plan",
+      "hasFreeTier": false,
+      "website": "https://www.intercom.com/fin",
+      "pros": [
+        "Resolves a large share of routine tickets without a human",
+        "Learns from your existing help center content",
+        "Smooth handoff to human agents when needed"
+      ],
+      "cons": [
+        "No free tier, priced per resolution",
+        "Best results require a well-maintained knowledge base"
+      ],
+      "bestFor": "Support teams wanting to automate resolution of routine tickets.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "tidio-ai",
+      "name": "Tidio AI",
+      "maker": "Tidio",
+      "categories": [
+        "customer-support"
+      ],
+      "tagline": "A free-to-start AI chatbot for small business customer support and sales.",
+      "pricing": "Free plan available; paid plans from $29/mo",
+      "hasFreeTier": true,
+      "website": "https://www.tidio.com",
+      "pros": [
+        "Genuinely usable free tier for small businesses",
+        "Easy to set up without technical expertise",
+        "Combines live chat, chatbots, and basic helpdesk tools"
+      ],
+      "cons": [
+        "Advanced automation needs a paid plan",
+        "Less suited to very high support volumes"
+      ],
+      "bestFor": "Small businesses and e-commerce stores needing affordable support AI.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "zendesk-ai",
+      "name": "Zendesk AI",
+      "maker": "Zendesk",
+      "categories": [
+        "customer-support"
+      ],
+      "tagline": "AI features built into Zendesk's helpdesk platform for ticket automation.",
+      "pricing": "Add-on pricing on top of Zendesk plans",
+      "hasFreeTier": false,
+      "website": "https://www.zendesk.com/ai",
+      "pros": [
+        "Built into a mature, widely used helpdesk platform",
+        "Good ticket routing and intent detection",
+        "Strong reporting and analytics"
+      ],
+      "cons": [
+        "Requires an existing Zendesk subscription",
+        "Pricing can add up for larger support teams"
+      ],
+      "bestFor": "Established support teams already using Zendesk.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "drift",
+      "name": "Drift",
+      "maker": "Drift (Salesloft)",
+      "categories": [
+        "customer-support",
+        "sales-crm"
+      ],
+      "tagline": "A conversational AI platform combining marketing chat and sales lead qualification.",
+      "pricing": "Custom pricing, typically enterprise-focused",
+      "hasFreeTier": false,
+      "website": "https://www.drift.com",
+      "pros": [
+        "Blends marketing chat with sales qualification in one tool",
+        "Strong meeting-scheduling automation",
+        "Established enterprise customer base"
+      ],
+      "cons": [
+        "Pricing geared toward mid-market and enterprise budgets",
+        "No self-serve free tier"
+      ],
+      "bestFor": "B2B companies wanting chat-driven lead qualification.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "ada",
+      "name": "Ada",
+      "maker": "Ada",
+      "categories": [
+        "customer-support"
+      ],
+      "tagline": "An enterprise AI customer service platform focused on automated resolution rates.",
+      "pricing": "Custom enterprise pricing",
+      "hasFreeTier": false,
+      "website": "https://www.ada.cx",
+      "pros": [
+        "Strong focus on measurable automated resolution rates",
+        "Scales to very high support ticket volumes",
+        "Good integrations with enterprise helpdesk stacks"
+      ],
+      "cons": [
+        "No public self-serve pricing or free tier",
+        "Overkill for small businesses with low ticket volume"
+      ],
+      "bestFor": "Large enterprises with high-volume customer support operations.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "crisp",
+      "name": "Crisp",
+      "maker": "Crisp",
+      "categories": [
+        "customer-support"
+      ],
+      "tagline": "An affordable live chat and AI chatbot platform for small and mid-sized teams.",
+      "pricing": "Free plan available; paid plans from $25/mo",
+      "hasFreeTier": true,
+      "website": "https://crisp.chat",
+      "pros": [
+        "Affordable compared to enterprise helpdesk platforms",
+        "Usable free tier for very small teams",
+        "Combines live chat, email, and a chatbot in one inbox"
+      ],
+      "cons": [
+        "Less deep automation than enterprise-focused competitors",
+        "Advanced AI features require a paid plan"
+      ],
+      "bestFor": "Small and mid-sized teams wanting affordable support tooling.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "khanmigo",
+      "name": "Khanmigo",
+      "maker": "Khan Academy",
+      "categories": [
+        "education"
+      ],
+      "tagline": "An AI tutor from Khan Academy that guides students to answers instead of giving them away.",
+      "pricing": "Free for teachers; district and family pricing varies",
+      "hasFreeTier": true,
+      "website": "https://www.khanmigo.ai",
+      "pros": [
+        "Designed around sound pedagogy, not just answering questions",
+        "Free access for teachers in many regions",
+        "Built by an established, trusted education nonprofit"
+      ],
+      "cons": [
+        "Some features require district or family-level access",
+        "Scope is tied closely to Khan Academy's curriculum"
+      ],
+      "bestFor": "Students and teachers wanting a pedagogically-minded AI tutor.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "duolingo-max",
+      "name": "Duolingo Max",
+      "maker": "Duolingo",
+      "categories": [
+        "education"
+      ],
+      "tagline": "An AI-enhanced tier of Duolingo with explanations and roleplay conversation practice.",
+      "pricing": "Included in Duolingo Max subscription, pricing varies by region",
+      "hasFreeTier": false,
+      "website": "https://www.duolingo.com",
+      "pros": [
+        "Roleplay conversations give realistic speaking practice",
+        "Explain My Answer feature clarifies grammar mistakes",
+        "Built on Duolingo's proven gamified learning system"
+      ],
+      "cons": [
+        "Requires the higher-priced Max tier, not the free app",
+        "Conversation practice limited to supported languages"
+      ],
+      "bestFor": "Language learners wanting AI conversation practice.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "quizlet-ai",
+      "name": "Quizlet AI",
+      "maker": "Quizlet",
+      "categories": [
+        "education"
+      ],
+      "tagline": "AI-powered study tools including auto-generated flashcards and practice tests.",
+      "pricing": "Free plan available; Plus from $7.99/mo",
+      "hasFreeTier": true,
+      "website": "https://quizlet.com",
+      "pros": [
+        "Turns notes into flashcards and practice tests automatically",
+        "Huge existing library of shared study sets",
+        "Usable free tier for most students"
+      ],
+      "cons": [
+        "Advanced AI study modes need a paid plan",
+        "Quality depends on the notes you feed it"
+      ],
+      "bestFor": "Students wanting fast, auto-generated flashcards and quizzes.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "socratic",
+      "name": "Socratic by Google",
+      "maker": "Google",
+      "categories": [
+        "education"
+      ],
+      "tagline": "A free homework-help app that explains concepts using photos of questions.",
+      "pricing": "Free",
+      "hasFreeTier": true,
+      "website": "https://socratic.org",
+      "pros": [
+        "Completely free with no paid tier",
+        "Snap a photo of a question to get step-by-step help",
+        "Covers a wide range of school subjects"
+      ],
+      "cons": [
+        "Less conversational and flexible than a full chatbot",
+        "Development has slowed as Google shifts focus to Gemini"
+      ],
+      "bestFor": "Quick, free homework help from a photo of a question.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "coursehero-ai",
+      "name": "CourseHero AI (Ask a Tutor)",
+      "maker": "Course Hero",
+      "categories": [
+        "education"
+      ],
+      "tagline": "AI-powered study help combined with access to human tutors and course materials.",
+      "pricing": "Free plan available; paid plans from $9.95/mo",
+      "hasFreeTier": true,
+      "website": "https://www.coursehero.com",
+      "pros": [
+        "Combines AI answers with access to real human tutors",
+        "Large existing library of course-specific study materials",
+        "Usable free tier with limited monthly unlocks"
+      ],
+      "cons": [
+        "Full library access requires a paid subscription",
+        "Some shared materials vary in quality"
+      ],
+      "bestFor": "College students wanting both AI help and human tutor access.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "coursera-coach",
+      "name": "Coursera Coach",
+      "maker": "Coursera",
+      "categories": [
+        "education"
+      ],
+      "tagline": "An AI learning coach built into Coursera courses to answer questions and quiz you.",
+      "pricing": "Included with many Coursera courses and subscriptions",
+      "hasFreeTier": true,
+      "website": "https://www.coursera.org",
+      "pros": [
+        "Built directly into courses you're already taking",
+        "Can quiz you and summarize video lectures",
+        "Available on many free-to-audit courses"
+      ],
+      "cons": [
+        "Scope limited to Coursera's own course content",
+        "Full course certificates still require payment"
+      ],
+      "bestFor": "Online learners wanting AI support inside their existing courses.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "hubspot-ai",
+      "name": "HubSpot AI",
+      "maker": "HubSpot",
+      "categories": [
+        "sales-crm",
+        "seo-marketing"
+      ],
+      "tagline": "AI features built into HubSpot's CRM, marketing, and sales platform.",
+      "pricing": "Free CRM available; paid Hubs and AI features from around $20/mo",
+      "hasFreeTier": true,
+      "website": "https://www.hubspot.com/artificial-intelligence",
+      "pros": [
+        "Built into a genuinely free CRM as a starting point",
+        "Combines marketing, sales, and service data in one system",
+        "Wide ecosystem of integrations"
+      ],
+      "cons": [
+        "Costs rise quickly as your contact list and needs grow",
+        "Full AI feature set spread across multiple paid Hubs"
+      ],
+      "bestFor": "Growing businesses wanting CRM, marketing, and AI in one platform.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "salesforce-agentforce",
+      "name": "Salesforce Agentforce",
+      "maker": "Salesforce",
+      "categories": [
+        "sales-crm"
+      ],
+      "tagline": "Salesforce's platform for building autonomous AI agents inside the CRM.",
+      "pricing": "Custom enterprise pricing on top of Salesforce plans",
+      "hasFreeTier": false,
+      "website": "https://www.salesforce.com/agentforce",
+      "pros": [
+        "Deep integration with Salesforce's enterprise CRM data",
+        "Can automate complex, multi-step sales and service workflows",
+        "Backed by a large partner and integration ecosystem"
+      ],
+      "cons": [
+        "Requires an existing Salesforce investment",
+        "Enterprise pricing puts it out of reach for small teams"
+      ],
+      "bestFor": "Enterprises already on Salesforce wanting AI agent automation.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "apollo-io",
+      "name": "Apollo.io",
+      "maker": "Apollo",
+      "categories": [
+        "sales-crm"
+      ],
+      "tagline": "A sales intelligence platform combining a contact database with AI outreach tools.",
+      "pricing": "Free plan available; paid plans from $49/user/mo",
+      "hasFreeTier": true,
+      "website": "https://www.apollo.io",
+      "pros": [
+        "Large B2B contact database included in most plans",
+        "Usable free tier for smaller outreach needs",
+        "AI-assisted email sequencing and personalization"
+      ],
+      "cons": [
+        "Data accuracy varies by industry and region",
+        "Higher-volume outreach needs a paid plan"
+      ],
+      "bestFor": "Sales teams needing contact data and outreach tools in one place.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "clay",
+      "name": "Clay",
+      "maker": "Clay",
+      "categories": [
+        "sales-crm"
+      ],
+      "tagline": "A data enrichment and outreach automation tool that combines dozens of data sources with AI.",
+      "pricing": "Free plan available; paid plans from $149/mo",
+      "hasFreeTier": true,
+      "website": "https://www.clay.com",
+      "pros": [
+        "Combines many data providers into a single enrichment workflow",
+        "AI-written outreach personalized per lead at scale",
+        "Flexible enough for highly custom sales workflows"
+      ],
+      "cons": [
+        "Steeper learning curve than simpler CRM tools",
+        "Paid plans get expensive at higher usage volumes"
+      ],
+      "bestFor": "Growth and sales-ops teams building highly custom outbound workflows.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "gong",
+      "name": "Gong",
+      "maker": "Gong",
+      "categories": [
+        "sales-crm"
+      ],
+      "tagline": "AI-powered conversation intelligence that analyzes sales calls for coaching insights.",
+      "pricing": "Custom enterprise pricing",
+      "hasFreeTier": false,
+      "website": "https://www.gong.io",
+      "pros": [
+        "Deep analysis of sales call patterns and deal risk",
+        "Strong coaching insights for sales managers",
+        "Well-established in mid-market and enterprise sales teams"
+      ],
+      "cons": [
+        "No public self-serve pricing or free tier",
+        "Overkill for very small sales teams"
+      ],
+      "bestFor": "Sales organizations wanting AI-driven call coaching and deal insights.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "reply-io",
+      "name": "Reply.io",
+      "maker": "Reply.io",
+      "categories": [
+        "sales-crm"
+      ],
+      "tagline": "An AI-assisted multichannel sales outreach and email sequencing platform.",
+      "pricing": "Free plan available; paid plans from $49/mo",
+      "hasFreeTier": true,
+      "website": "https://reply.io",
+      "pros": [
+        "Automates personalized outreach across email and other channels",
+        "Usable free tier for smaller outreach volumes",
+        "AI helps draft and vary sequence messaging"
+      ],
+      "cons": [
+        "Deliverability still depends on good list hygiene",
+        "Advanced multichannel features need a paid plan"
+      ],
+      "bestFor": "Sales teams automating personalized, multichannel cold outreach.",
+      "lastUpdated": "2026-07-02"
+    },
+    {
+      "slug": "close-crm",
+      "name": "Close",
+      "maker": "Close",
+      "categories": [
+        "sales-crm"
+      ],
+      "tagline": "A CRM built for small sales teams, with AI-assisted email and calling workflows.",
+      "pricing": "Free trial; paid plans from $19/user/mo",
+      "hasFreeTier": false,
+      "website": "https://close.com",
+      "pros": [
+        "Built specifically for small, fast-moving sales teams",
+        "Combines calling, email, and pipeline in one interface",
+        "Simpler to set up than enterprise CRMs"
+      ],
+      "cons": [
+        "No permanent free tier, only a trial",
+        "Less suited to very large or complex sales organizations"
+      ],
+      "bestFor": "Small sales teams wanting an all-in-one, easy-to-run CRM.",
+      "lastUpdated": "2026-07-02"
+    }
+  ]
+}

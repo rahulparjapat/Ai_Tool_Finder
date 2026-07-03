@@ -1,0 +1,52 @@
+---
+// ============================================================================
+// Footer.astro
+// ----------------------------------------------------------------------------
+// Sitewide footer with the standard sitemap-style link groups plus the
+// legal/trust pages required for AdSense approval and affiliate compliance
+// (Privacy Policy, Terms, Affiliate Disclosure). White background, thin
+// top border — matches the header for a consistent minimalist frame.
+// ============================================================================
+import { SITE } from "../lib/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-neutral-200 bg-white py-12 text-sm text-neutral-500">
+  <div class="mx-auto max-w-6xl px-5">
+    <div class="grid grid-cols-2 gap-8 sm:grid-cols-4">
+      <div>
+        <h3 class="mb-3 font-medium text-neutral-950">Explore</h3>
+        <ul class="space-y-2">
+          <li><a href="/categories/" class="hover:text-neutral-950">Categories</a></li>
+          <li><a href="/tools/" class="hover:text-neutral-950">All Tools</a></li>
+          <li><a href="/compare/" class="hover:text-neutral-950">Compare</a></li>
+          <li><a href="/best-for/" class="hover:text-neutral-950">Best For</a></li>
+          <li><a href="/blog/" class="hover:text-neutral-950">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 font-medium text-neutral-950">Company</h3>
+        <ul class="space-y-2">
+          <li><a href="/about/" class="hover:text-neutral-950">About</a></li>
+          <li><a href="/contact/" class="hover:text-neutral-950">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="mb-3 font-medium text-neutral-950">Legal</h3>
+        <ul class="space-y-2">
+          <li><a href="/privacy-policy/" class="hover:text-neutral-950">Privacy Policy</a></li>
+          <li><a href="/terms/" class="hover:text-neutral-950">Terms of Use</a></li>
+          <li><a href="/affiliate-disclosure/" class="hover:text-neutral-950">Affiliate Disclosure</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="mt-10 border-t border-neutral-200 pt-6 text-xs text-neutral-400">
+      &copy; {year} {SITE.name}. Some links on this site are affiliate links — we may earn a
+      commission at no extra cost to you. See our
+      <a href="/affiliate-disclosure/" class="underline underline-offset-2 hover:text-neutral-600">
+        Affiliate Disclosure
+      </a>.
+    </p>
+  </div>
+</footer>

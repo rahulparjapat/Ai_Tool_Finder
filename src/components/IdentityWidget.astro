@@ -1,0 +1,36 @@
+---
+// ============================================================================
+// IdentityWidget.astro
+// ----------------------------------------------------------------------------
+// Loads Netlify Identity's widget script sitewide. This is what actually
+// makes invite/password-recovery/confirmation links work — those links
+// arrive as a URL fragment like "#invite_token=..." or "#recovery_token=..."
+// appended to your homepage, and this script is what watches for that
+// fragment and pops up the "set your password" box.
+//
+// Without this script present, a link like
+//   yoursite.com/#invite_token=abc123
+// just loads the normal homepage and silently ignores the fragment — which
+// is exactly the bug this component fixes (the invite link was opening the
+// homepage instead of a login/password prompt).
+//
+// It's loaded on EVERY page (via Layout.astro), not just /admin/, because
+// invite and password-recovery emails link to the site root by default —
+// there's no guarantee a clicked email link lands on /admin/ specifically.
+// ============================================================================
+---
+
+<script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script is:inline>
+  // Runs on every page. If the URL contains an invite/recovery/confirmation
+  // token, Netlify Identity's widget opens its modal automatically once it
+  // finishes initializing. This listener makes sure that after the visitor
+  // sets their password via that modal, they're redirected to the /admin/
+  // dashboard (the only place actually useful to a logged-in editor)
+  // rather than being left on whatever public page the link happened to load.
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("login", function () {
+      window.location.href = "/admin/";
+    });
+  }
+</script>

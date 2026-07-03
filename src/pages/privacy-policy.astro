@@ -1,0 +1,79 @@
+---
+// ============================================================================
+// privacy-policy.astro
+// ----------------------------------------------------------------------------
+// Required legal page for AdSense approval and general compliance. This is
+// a reasonable starting template, NOT a substitute for legal review — see
+// the TODO comment below.
+// ============================================================================
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { SITE } from "../lib/site";
+
+const title = `Privacy Policy — ${SITE.name}`;
+const description = `How ${SITE.name} collects, uses, and protects your information.`;
+
+// TODO: update this date whenever the policy text actually changes.
+const lastUpdated = "2026-07-02";
+---
+
+<Layout title={title} description={description} path="/privacy-policy/">
+  <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "Privacy Policy", path: "/privacy-policy/" }]} />
+  <article class="mx-auto max-w-3xl px-5 py-10">
+    <h1 class="mb-2 text-3xl font-semibold text-neutral-950">Privacy Policy</h1>
+    <p class="mb-8 text-xs text-neutral-400">Last updated: {lastUpdated}</p>
+
+    <div class="space-y-4 text-neutral-700">
+      <p>
+        This Privacy Policy explains how {SITE.name} ("we", "us") collects, uses, and shares
+        information when you visit this website.
+        <!-- TODO: this is a starting template, not legal advice. Have a lawyer, or a service
+             like Termly / iubenda, review or generate your final policy before launch —
+             especially if you expect EU/UK ("GDPR") or California ("CCPA") visitors. -->
+      </p>
+
+      <h2 class="!mt-8 text-xl font-semibold text-neutral-950">Information We Collect</h2>
+      <p>
+        We use Google Analytics (GA4) to understand how visitors use this site, including pages
+        visited, time on site, and general location (country/region level). This data is
+        pseudonymous and is not used to personally identify you.
+      </p>
+
+      <h2 class="!mt-8 text-xl font-semibold text-neutral-950">Cookies &amp; Advertising</h2>
+      <p>
+        We use cookies for analytics and to serve ads via Google AdSense. Google and its partners
+        may use cookies to serve ads based on your prior visits to this or other websites. You can
+        opt out of personalized advertising by visiting
+        <a href="https://adssettings.google.com" target="_blank" rel="noopener" class="text-neutral-950 underline underline-offset-2">
+          Google Ads Settings
+        </a>.
+      </p>
+      <p>
+        When you first visit this site, you'll see a cookie banner where you can accept or reject
+        non-essential cookies (analytics and ad personalization). Your choice is stored locally in
+        your browser and applied via Google's Consent Mode.
+      </p>
+
+      <h2 class="!mt-8 text-xl font-semibold text-neutral-950">Third-Party Links</h2>
+      <p>
+        This site contains links to third-party AI tools and services, some of which are affiliate
+        links (see our
+        <a href="/affiliate-disclosure/" class="text-neutral-950 underline underline-offset-2">Affiliate Disclosure</a>).
+        We are not responsible for the privacy practices of these external sites.
+      </p>
+
+      <h2 class="!mt-8 text-xl font-semibold text-neutral-950">Your Rights</h2>
+      <p>
+        Depending on your location, you may have rights to access, correct, or delete data
+        collected about you. Contact us via our
+        <a href="/contact/" class="text-neutral-950 underline underline-offset-2">Contact page</a> for requests.
+      </p>
+
+      <h2 class="!mt-8 text-xl font-semibold text-neutral-950">Changes to This Policy</h2>
+      <p>
+        We may update this policy from time to time. The "Last updated" date at the top of this
+        page reflects the most recent revision.
+      </p>
+    </div>
+  </article>
+</Layout>

@@ -1,0 +1,68 @@
+---
+// ============================================================================
+// Header.astro
+// ----------------------------------------------------------------------------
+// Sitewide top navigation. White background with a thin bottom border
+// (rather than a colored bar) to keep the whole site's minimalist,
+// monochrome look consistent. Includes a simple, dependency-free mobile
+// menu toggle (no JS framework — just a checkbox-free inline script).
+// ============================================================================
+import Icon from "./Icon.astro";
+import { SITE } from "../lib/site";
+---
+
+<header class="sticky top-0 z-40 border-b border-neutral-200 bg-white/90 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+    <a href="/" class="text-lg font-semibold tracking-tight text-neutral-950">
+      {SITE.name}
+    </a>
+
+    <!-- Desktop navigation — hidden on small screens in favor of the menu button. -->
+    <nav class="hidden items-center gap-6 text-sm text-neutral-600 md:flex">
+      <a href="/categories/" class="hover:text-neutral-950">Categories</a>
+      <a href="/tools/" class="hover:text-neutral-950">All Tools</a>
+      <a href="/compare/" class="hover:text-neutral-950">Compare</a>
+      <a href="/best-for/" class="hover:text-neutral-950">Best For</a>
+      <a href="/blog/" class="hover:text-neutral-950">Blog</a>
+    </nav>
+
+    <!-- Mobile menu toggle button (shown only below the md breakpoint). -->
+    <button
+      id="mobile-menu-button"
+      type="button"
+      class="rounded-md p-2 text-neutral-700 hover:bg-neutral-100 md:hidden"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <Icon name="menu" class="h-6 w-6" />
+    </button>
+  </div>
+
+  <!-- Mobile navigation panel — hidden by default, toggled by the script below. -->
+  <nav id="mobile-menu" class="hidden border-t border-neutral-200 bg-white md:hidden">
+    <div class="flex flex-col px-5 py-3 text-sm text-neutral-700">
+      <a href="/categories/" class="border-b border-neutral-100 py-3">Categories</a>
+      <a href="/tools/" class="border-b border-neutral-100 py-3">All Tools</a>
+      <a href="/compare/" class="border-b border-neutral-100 py-3">Compare</a>
+      <a href="/best-for/" class="border-b border-neutral-100 py-3">Best For</a>
+      <a href="/blog/" class="py-3">Blog</a>
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  // Small, dependency-free toggle for the mobile nav panel. Runs on every
+  // page since Header.astro is included in the shared Layout.
+  (function () {
+    var button = document.getElementById("mobile-menu-button");
+    var menu = document.getElementById("mobile-menu");
+    if (!button || !menu) return;
+
+    button.addEventListener("click", function () {
+      var isHidden = menu.classList.contains("hidden");
+      menu.classList.toggle("hidden");
+      button.setAttribute("aria-expanded", String(isHidden));
+    });
+  })();
+</script>

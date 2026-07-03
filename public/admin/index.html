@@ -1,0 +1,34 @@
+<!doctype html>
+<!--
+  ============================================================================
+  admin/index.html
+  ----------------------------------------------------------------------------
+  This is the entire "admin dashboard" page. It loads Decap CMS (a free,
+  open-source content editor) from a public CDN and points it at
+  admin/config.yml for the actual form definitions (what fields "New Tool",
+  "New Blog Post", etc. show).
+
+  Because config.yml's backend is "git-gateway", Decap CMS automatically
+  loads and manages its own Netlify Identity login flow on THIS page — you
+  do not need to add anything else here for the actual login box to work.
+
+  The separate IdentityWidget component (loaded sitewide via Layout.astro)
+  exists for a different reason: invite/password-recovery emails link to
+  your site's ROOT domain by default (not directly to /admin/), so that
+  sitewide script is what catches the invite link wherever it lands and
+  redirects the visitor into this page after they set their password.
+  ============================================================================
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Tool Finder — Content Admin</title>
+    <!-- Prevent this internal admin page from being indexed by search engines. -->
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+  <body>
+    <!-- Decap CMS loads and renders the entire editing UI into this page. -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+# ==============================================================================
+# admin/config.yml
+# ------------------------------------------------------------------------------
+# This file defines every form the content dashboard shows you at
+# yoursite.com/admin/ — the field names below become the labeled boxes you
+# fill in (e.g. "Tool Name", "Price"). You should never need to hand-edit
+# this file day-to-day; it's configured once and then just works.
+#
+# Written entirely in YAML "block style" (indented lists, no { } curly
+# braces) rather than "flow style" — block style is the standard, safer way
+# to write Decap CMS configs and avoids a class of syntax errors that flow
+# style is prone to when fields are nested (that caused the previous
+# version of this file to fail with a YAMLSemanticError).
+#
+# How publishing works: when you click "Publish" in the dashboard, Decap CMS
+# commits the change directly to this GitHub repository. Your host (Netlify)
+# is already set up to automatically rebuild and redeploy the live site
+# whenever the repository changes — so a few minutes after clicking
+# "Publish," the change is live on the real site.
+# ==============================================================================
+
+# --- Where content gets saved ---
+backend:
+  name: git-gateway
+  branch: main
+
+# Netlify Identity + Git Gateway (configured separately in the Netlify
+# dashboard) is what lets you log in with a simple email/password instead
+# of needing your own GitHub developer credentials.
+
+# Shows a "Publish" vs "Save as draft" choice, and lets you preview an
+# entry before it goes live.
+publish_mode: editorial_workflow
+
+# Where uploaded images (e.g. a blog post's cover image) are stored.
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # ---------------------------------------------------------------------
+  # AI TOOLS — the form for adding/editing a tool in the directory.
+  # Adding one tool here automatically creates its review page,
+  # its "alternatives to X" page, and every relevant "X vs Y" comparison
+  # page on the live site — no extra step needed.
+  # ---------------------------------------------------------------------
+  - name: "tools"
+    label: "AI Tools"
+    label_singular: "Tool"
+    file: "src/data/tools.json"
+    format: "json"
+    create: true
+    delete: true
+    fields:
+      - label: "Tools"
+        name: "tools"
+        widget: "list"
+        label_singular: "Tool"
+        summary: "{{fields.name}}"
+        fields:
+          - { label: "Tool Name", name: "name", widget: "string", hint: "e.g. ChatGPT" }
+          - { label: "URL Slug", name: "slug", widget: "string", hint: "Lowercase, no spaces — e.g. chatgpt" }
+          - { label: "Made By (Company)", name: "maker", widget: "string", hint: "e.g. OpenAI" }
+          - label: "Categories"
+            name: "categories"
+            widget: "list"
+            hint: "Which category page(s) this tool should appear on — must match a Category's URL Slug exactly."
+            field: { label: "Category Slug", name: "category", widget: "string" }
+          - { label: "One-Sentence Description", name: "tagline", widget: "string" }
+          - { label: "Pricing (plain text)", name: "pricing", widget: "string", hint: "e.g. Free plan available; Pro $20/mo" }
+          - { label: "Has a Free Plan?", name: "hasFreeTier", widget: "boolean", default: true }
+          - { label: "Official Website Link", name: "website", widget: "string" }
+          - { label: "Affiliate Link (optional)", name: "affiliateUrl", widget: "string", required: false, hint: "If you have an affiliate/referral link for this tool, paste it here — used instead of the plain website link." }
+          - label: "Pros"
+            name: "pros"
+            widget: "list"
+            field: { label: "Pro", name: "item", widget: "string" }
+          - label: "Cons"
+            name: "cons"
+            widget: "list"
+            field: { label: "Con", name: "item", widget: "string" }
+          - { label: "Best For (one sentence)", name: "bestFor", widget: "string" }
+          - { label: "Last Updated", name: "lastUpdated", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
+
+  # ---------------------------------------------------------------------
+  # CATEGORIES — rarely needs new entries, but editable the same way.
+  # ---------------------------------------------------------------------
+  - name: "categories"
+    label: "Categories"
+    label_singular: "Category"
+    file: "src/data/categories.json"
+    format: "json"
+    create: true
+    delete: true
+    fields:
+      - label: "Categories"
+        name: "categories"
+        widget: "list"
+        label_singular: "Category"
+        summary: "{{fields.name}}"
+        fields:
+          - { label: "Category Name", name: "name", widget: "string", hint: "e.g. AI Writing Tools" }
+          - { label: "URL Slug", name: "slug", widget: "string", hint: "Lowercase, no spaces — e.g. writing" }
+          - label: "Icon"
+            name: "icon"
+            widget: "select"
+            options: ["chat", "pencil", "image", "video", "microphone", "code", "briefcase", "search", "megaphone", "cube", "swatch", "workflow", "presentation", "headset", "academic-cap", "currency"]
+          - { label: "Banner Image Path (optional)", name: "image", widget: "string", required: false, hint: "e.g. /images/categories/writing.png — leave blank if none yet." }
+          - { label: "Description", name: "description", widget: "text" }
+
+  # ---------------------------------------------------------------------
+  # BEST-FOR ROUNDUPS — "Best AI Tools for Students" style pages.
+  # ---------------------------------------------------------------------
+  - name: "use_cases"
+    label: "Best-For Roundups"
+    label_singular: "Roundup"
+    file: "src/data/use-cases.json"
+    format: "json"
+    create: true
+    delete: true
+    fields:
+      - label: "Roundups"
+        name: "useCases"
+        widget: "list"
+        label_singular: "Roundup"
+        summary: "{{fields.title}}"
+        fields:
+          - { label: "URL Slug", name: "slug", widget: "string", hint: "e.g. students" }
+          - { label: "Page Title", name: "title", widget: "string", hint: "e.g. Best AI Tools for Students" }
+          - { label: "Intro Paragraph", name: "intro", widget: "text" }
+          - label: "Featured Tool Slugs (in order)"
+            name: "toolSlugs"
+            widget: "list"
+            hint: "Must match each tool's URL Slug exactly, e.g. chatgpt"
+            field: { label: "Tool Slug", name: "slug", widget: "string" }
+
+  # ---------------------------------------------------------------------
+  # BLOG — full long-form articles, written directly in the dashboard.
+  # ---------------------------------------------------------------------
+  - name: "blog"
+    label: "Blog Articles"
+    label_singular: "Article"
+    folder: "src/content/blog"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Short Description (for search engines & previews)", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "publishDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Updated Date (optional)", name: "updatedDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { label: "Hide this article (draft, don't publish yet)", name: "draft", widget: "boolean", default: false }
+      - { label: "Article Content", name: "body", widget: "markdown" }

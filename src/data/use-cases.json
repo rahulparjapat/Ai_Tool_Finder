@@ -1,0 +1,198 @@
+{
+  "useCases": [
+    {
+      "slug": "students",
+      "title": "Best AI Tools for Students",
+      "intro": "Studying in 2026 means juggling reading, writing, and revision under real time pressure. These tools are the ones students actually reach for: fast homework help, flashcard generation, paraphrasing, and research assistants that explain sources instead of just answering.",
+      "toolSlugs": [
+        "chatgpt",
+        "notebooklm",
+        "quillbot",
+        "quizlet-ai",
+        "socratic",
+        "grammarly",
+        "consensus",
+        "coursehero-ai"
+      ]
+    },
+    {
+      "slug": "freelancers",
+      "title": "Best AI Tools for Freelancers",
+      "intro": "Freelancers wear every hat — writer, designer, bookkeeper, and salesperson — often in the same afternoon. This list favors free tiers and low monthly costs, since tool spend comes straight out of a freelancer's own margin.",
+      "toolSlugs": [
+        "chatgpt",
+        "grammarly",
+        "canva-magic-studio",
+        "notion-ai",
+        "otter-ai",
+        "rytr",
+        "zapier",
+        "close-crm"
+      ]
+    },
+    {
+      "slug": "small-business",
+      "title": "Best AI Tools for Small Business",
+      "intro": "Small business owners don't need an enterprise AI stack — they need a handful of reliable tools that save real hours every week. This shortlist covers writing, design, scheduling, and customer support without requiring a technical team.",
+      "toolSlugs": [
+        "chatgpt",
+        "canva-magic-studio",
+        "zapier",
+        "tidio-ai",
+        "hubspot-ai",
+        "otter-ai",
+        "durable",
+        "jasper"
+      ]
+    },
+    {
+      "slug": "marketers",
+      "title": "Best AI Tools for Marketers",
+      "intro": "Marketing teams in 2026 are expected to publish more content, run more campaigns, and prove ROI faster than ever. These are the AI tools currently doing the heavy lifting across SEO, content production, and ad creative.",
+      "toolSlugs": [
+        "surfer-seo",
+        "jasper",
+        "writesonic",
+        "semrush",
+        "adcreative-ai",
+        "hubspot-ai",
+        "canva-magic-studio",
+        "copy-ai"
+      ]
+    },
+    {
+      "slug": "teachers",
+      "title": "Best AI Tools for Teachers",
+      "intro": "Teachers are using AI less for shortcuts and more for the unglamorous parts of the job: building quizzes, adapting reading levels, and giving individualized homework help at a scale one teacher could never manage alone.",
+      "toolSlugs": [
+        "khanmigo",
+        "chatgpt",
+        "quizlet-ai",
+        "gamma",
+        "grammarly",
+        "canva-magic-studio",
+        "notebooklm"
+      ]
+    },
+    {
+      "slug": "developers",
+      "title": "Best AI Tools for Developers",
+      "intro": "AI-assisted coding has moved from novelty to default. This list covers the full range — from lightweight autocomplete to fully agentic tools that can plan, write, and run code with minimal supervision.",
+      "toolSlugs": [
+        "cursor",
+        "github-copilot",
+        "claude-code",
+        "windsurf",
+        "codeium",
+        "tabnine",
+        "replit-agent",
+        "v0"
+      ]
+    },
+    {
+      "slug": "designers",
+      "title": "Best AI Tools for Designers",
+      "intro": "Designers are using AI to speed up the parts of the job that used to eat entire afternoons — first-draft layouts, icon sets, and image generation — while keeping final polish and judgment firmly in human hands.",
+      "toolSlugs": [
+        "figma-ai",
+        "midjourney",
+        "adobe-firefly",
+        "galileo-ai",
+        "recraft",
+        "uizard",
+        "leonardo-ai"
+      ]
+    },
+    {
+      "slug": "content-creators",
+      "title": "Best AI Tools for YouTubers & Content Creators",
+      "intro": "From scripting to thumbnails to final edit, creators now have an AI tool for nearly every stage of production. This list focuses on the tools that hold up for regular, ongoing content schedules — not just one-off experiments.",
+      "toolSlugs": [
+        "capcut",
+        "elevenlabs",
+        "descript",
+        "midjourney",
+        "invideo-ai",
+        "canva-magic-studio",
+        "suno"
+      ]
+    },
+    {
+      "slug": "podcasters",
+      "title": "Best AI Tools for Podcasters",
+      "intro": "Podcast production has three real bottlenecks: editing, transcription, and consistent audio quality. These tools directly target those three problems, including transcript-based editing that removes the need to touch a traditional audio timeline at all.",
+      "toolSlugs": [
+        "descript",
+        "elevenlabs",
+        "otter-ai",
+        "resemble-ai",
+        "murf-ai"
+      ]
+    },
+    {
+      "slug": "sales-teams",
+      "title": "Best AI Tools for Sales Teams",
+      "intro": "Modern sales teams use AI across the whole pipeline — finding leads, personalizing outreach at scale, and reviewing call recordings for coaching insights that used to require a manager sitting in on every call.",
+      "toolSlugs": [
+        "apollo-io",
+        "clay",
+        "gong",
+        "reply-io",
+        "hubspot-ai",
+        "close-crm",
+        "salesforce-agentforce"
+      ]
+    },
+    {
+      "slug": "customer-support-teams",
+      "title": "Best AI Tools for Customer Support Teams",
+      "intro": "Support teams are under pressure to resolve more tickets without growing headcount. These tools range from budget-friendly small-business chatbots to enterprise platforms built to automate a majority of routine ticket volume.",
+      "toolSlugs": [
+        "intercom-fin",
+        "tidio-ai",
+        "zendesk-ai",
+        "ada",
+        "crisp"
+      ]
+    },
+    {
+      "slug": "startup-founders",
+      "title": "Best AI Tools for Startup Founders",
+      "intro": "Early-stage founders need to move fast across product, design, and go-to-market with a tiny team. This list is biased toward tools that can take an idea from a text prompt to something demoable in a single afternoon.",
+      "toolSlugs": [
+        "lovable",
+        "bolt-new",
+        "v0",
+        "chatgpt",
+        "claude",
+        "framer-ai",
+        "notion-ai",
+        "gamma"
+      ]
+    },
+    {
+      "slug": "researchers-academics",
+      "title": "Best AI Tools for Researchers & Academics",
+      "intro": "Academic research involves reading, synthesizing, and citing an overwhelming volume of literature. These tools are built specifically to work with source documents and peer-reviewed papers rather than the open web.",
+      "toolSlugs": [
+        "elicit",
+        "consensus",
+        "scispace",
+        "notebooklm",
+        "perplexity"
+      ]
+    },
+    {
+      "slug": "real-estate-agents",
+      "title": "Best AI Tools for Real Estate Agents",
+      "intro": "Real estate agents lean on AI for the constant stream of listing descriptions, client emails, and marketing visuals that come with every new property, without needing a copywriter or designer on retainer.",
+      "toolSlugs": [
+        "chatgpt",
+        "jasper",
+        "canva-magic-studio",
+        "grammarly",
+        "heygen"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+---
+// ============================================================================
+// best-for/index.astro
+// ----------------------------------------------------------------------------
+// Index of every "Best AI Tools for [audience]" roundup page. These are
+// hand-curated (not auto-generated combinatorics) because they target real,
+// high-volume search patterns like "best AI tools for students" — see the
+// research notes in src/data/use-cases.json for how these were chosen.
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import Icon from "../../components/Icon.astro";
+import { useCases } from "../../lib/data";
+import { SITE } from "../../lib/site";
+
+const title = `Best AI Tools by Use Case — ${SITE.name}`;
+const description = "Curated AI tool roundups for students, freelancers, developers, marketers, and more.";
+---
+
+<Layout title={title} description={description} path="/best-for/">
+  <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "Best For", path: "/best-for/" }]} />
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h1 class="mb-8 text-3xl font-semibold text-neutral-950">Best AI Tools by Use Case</h1>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        useCases.map((uc) => (
+          <a href={`/best-for/${uc.slug}/`} class="card flex items-center justify-between p-5">
+            <span class="font-medium text-neutral-950">{uc.title}</span>
+            <Icon name="arrow-right" class="h-4 w-4 shrink-0 text-neutral-400" />
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

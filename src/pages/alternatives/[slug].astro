@@ -1,0 +1,47 @@
+---
+// ============================================================================
+// alternatives/[slug].astro
+// ----------------------------------------------------------------------------
+// "Best free alternatives to [Tool]" page — one generated per tool, listing
+// other tools that share at least one category. Targets high-intent
+// "alternative to X" search queries, a very common pattern for tool/SaaS
+// research.
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ToolCard from "../../components/ToolCard.astro";
+import { tools, relatedTools } from "../../lib/data";
+import { SITE } from "../../lib/site";
+
+export function getStaticPaths() {
+  return tools.map((tool) => ({
+    params: { slug: tool.slug },
+    props: { tool },
+  }));
+}
+
+const { tool } = Astro.props;
+const alternatives = relatedTools(tool, 8);
+
+const title = `Best Free Alternatives to ${tool.name} in 2026 — ${SITE.name}`;
+const description = `Top free and paid alternatives to ${tool.name} in 2026, compared side by side.`;
+---
+
+<Layout title={title} description={description} path={`/alternatives/${tool.slug}/`}>
+  <Breadcrumbs
+    crumbs={[
+      { name: "Home", path: "/" },
+      { name: tool.name, path: `/tools/${tool.slug}/` },
+      { name: "Alternatives", path: `/alternatives/${tool.slug}/` },
+    ]}
+  />
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h1 class="mb-3 text-3xl font-semibold text-neutral-950">Best Free Alternatives to {tool.name} (2026)</h1>
+    <p class="mb-8 max-w-2xl text-neutral-600">
+      Looking for a free or cheaper alternative to {tool.name}? Here are the top options.
+    </p>
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {alternatives.map((a) => <ToolCard tool={a} />)}
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,120 @@
+---
+// ============================================================================
+// compare/[pair].astro
+// ----------------------------------------------------------------------------
+// A single "X vs Y" head-to-head comparison page. Generated automatically
+// for every pair of tools that share at least one category — this is the
+// main "programmatic SEO" growth engine described in PROJECT_SPEC.md:
+// growing src/data/tools.json grows this page count combinatorially with
+// zero additional template work.
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ToolLogo from "../../components/ToolLogo.astro";
+import AdSlot from "../../components/AdSlot.astro";
+import AdsterraNative from "../../components/AdsterraNative.astro";
+import { allComparePairs, compareSlug } from "../../lib/data";
+import { SITE } from "../../lib/site";
+
+export function getStaticPaths() {
+  return allComparePairs().map(({ a, b, sharedCategory }) => ({
+    params: { pair: compareSlug(a, b) },
+    props: { a, b, sharedCategory },
+  }));
+}
+
+const { a, b, sharedCategory } = Astro.props;
+const pairSlug = compareSlug(a, b);
+
+const title = `${a.name} vs ${b.name} (2026 Comparison) — ${SITE.name}`;
+const description = `${a.name} vs ${b.name}: compare pricing, features, and which one is best for you in 2026.`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: `${a.name} vs ${b.name}`,
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: a.name, url: new URL(`/tools/${a.slug}/`, SITE.url).toString() },
+    { "@type": "ListItem", position: 2, name: b.name, url: new URL(`/tools/${b.slug}/`, SITE.url).toString() },
+  ],
+};
+---
+
+<Layout title={title} description={description} path={`/compare/${pairSlug}/`} jsonLd={jsonLd}>
+  <Breadcrumbs
+    crumbs={[
+      { name: "Home", path: "/" },
+      { name: "Compare", path: "/compare/" },
+      { name: `${a.name} vs ${b.name}`, path: `/compare/${pairSlug}/` },
+    ]}
+  />
+
+  <article class="mx-auto max-w-4xl px-5 py-10">
+    <div class="mb-4 flex items-center justify-center gap-4">
+      <ToolLogo name={a.name} slug={a.slug} class="h-12 w-12 text-lg" />
+      <span class="text-sm font-medium text-neutral-400">vs</span>
+      <ToolLogo name={b.name} slug={b.slug} class="h-12 w-12 text-lg" />
+    </div>
+
+    <h1 class="mb-3 text-center text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+      {a.name} vs {b.name} (2026): Which Should You Use?
+    </h1>
+    <p class="mb-8 text-center text-neutral-600">
+      {a.name} and {b.name} are both popular tools in the {sharedCategory?.name} space. Here's how they compare.
+    </p>
+
+    <div class="mb-8 overflow-x-auto rounded-lg border border-neutral-200">
+      <table class="w-full border-collapse text-sm">
+        <thead>
+          <tr class="bg-neutral-50 text-left">
+            <th class="p-3 text-neutral-400"></th>
+            <th class="p-3 font-medium text-neutral-950">{a.name}</th>
+            <th class="p-3 font-medium text-neutral-950">{b.name}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-neutral-200">
+            <th class="p-3 text-left font-medium text-neutral-500">Maker</th>
+            <td class="p-3 text-neutral-800">{a.maker}</td>
+            <td class="p-3 text-neutral-800">{b.maker}</td>
+          </tr>
+          <tr class="border-t border-neutral-200">
+            <th class="p-3 text-left font-medium text-neutral-500">Pricing</th>
+            <td class="p-3 text-neutral-800">{a.pricing}</td>
+            <td class="p-3 text-neutral-800">{b.pricing}</td>
+          </tr>
+          <tr class="border-t border-neutral-200">
+            <th class="p-3 text-left font-medium text-neutral-500">Free tier</th>
+            <td class="p-3 text-neutral-800">{a.hasFreeTier ? "Yes" : "No"}</td>
+            <td class="p-3 text-neutral-800">{b.hasFreeTier ? "Yes" : "No"}</td>
+          </tr>
+          <tr class="border-t border-neutral-200">
+            <th class="p-3 text-left font-medium text-neutral-500">Best for</th>
+            <td class="p-3 text-neutral-800">{a.bestFor}</td>
+            <td class="p-3 text-neutral-800">{b.bestFor}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <AdSlot slot="in-content" />
+    <AdsterraNative />
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      <div class="card p-5">
+        <h2 class="mb-2 font-medium text-neutral-950">{a.name}</h2>
+        <p class="mb-4 text-sm text-neutral-600">{a.tagline}</p>
+        <a href={`/tools/${a.slug}/`} class="text-sm text-neutral-700 underline underline-offset-2 hover:text-neutral-950">
+          Read full {a.name} review
+        </a>
+      </div>
+      <div class="card p-5">
+        <h2 class="mb-2 font-medium text-neutral-950">{b.name}</h2>
+        <p class="mb-4 text-sm text-neutral-600">{b.tagline}</p>
+        <a href={`/tools/${b.slug}/`} class="text-sm text-neutral-700 underline underline-offset-2 hover:text-neutral-950">
+          Read full {b.name} review
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

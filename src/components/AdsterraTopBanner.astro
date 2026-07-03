@@ -1,0 +1,27 @@
+---
+// ============================================================================
+// AdsterraTopBanner.astro
+// ----------------------------------------------------------------------------
+// A single, responsive top-of-page ad slot: shows the 728x90 leaderboard on
+// wide screens and the 320x50 mobile banner on narrow screens. Placed once,
+// sitewide, in Layout.astro (immediately below the header) — this is
+// deliberately the ONE ad unit that appears on every single page, since a
+// slim top banner is the least intrusive placement available and the most
+// standard, expected location for advertising on a content site.
+//
+// Both sizes are rendered, but CSS (Tailwind's responsive display
+// utilities) shows only one at a time based on viewport width — simpler
+// and more reliable than JS-based viewport detection, and avoids any
+// flash-of-wrong-size on load.
+// ============================================================================
+import AdsterraBanner from "./AdsterraBanner.astro";
+---
+
+<div class="flex justify-center border-b border-neutral-100 bg-neutral-50 py-2">
+  <div class="hidden sm:block">
+    <AdsterraBanner size="728x90" />
+  </div>
+  <div class="block sm:hidden">
+    <AdsterraBanner size="320x50" />
+  </div>
+</div>

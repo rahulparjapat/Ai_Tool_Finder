@@ -1,0 +1,56 @@
+---
+// ============================================================================
+// Analytics.astro
+// ----------------------------------------------------------------------------
+// Loads Google Analytics 4 (GA4), wired up for Google Consent Mode v2 so
+// analytics storage stays "denied" until the visitor accepts cookies via
+// the ConsentBanner component. If SITE.ga4MeasurementId is still the
+// placeholder value, this component renders nothing — avoiding broken
+// network requests before you've configured a real GA4 property.
+// ============================================================================
+import { SITE } from "../lib/site";
+
+const { ga4MeasurementId } = SITE;
+const isPlaceholder = ga4MeasurementId.includes("XXXX");
+---
+
+{
+  !isPlaceholder && (
+    <>
+      {/* Consent Mode v2 default state: everything denied until the user
+         explicitly accepts via ConsentBanner.astro. This script MUST run
+         before gtag.js loads, so Google's SDK picks up these defaults. */}
+      <script is:inline>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            analytics_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            wait_for_update: 500
+          });
+        `}
+      </script>
+
+      {/* Google's tag loader script for this GA4 property. */}
+      <script
+        is:inline
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${ga4MeasurementId}`}
+      />
+
+      {/* Initialize GA4 with the real measurement ID, and anonymize IPs
+         as an extra privacy-friendly default. */}
+      <script is:inline define:vars={{ ga4MeasurementId }}>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', ga4MeasurementId, { anonymize_ip: true });
+        `}
+      </script>
+    </>
+  )
+}

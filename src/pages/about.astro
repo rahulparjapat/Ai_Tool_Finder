@@ -1,0 +1,49 @@
+---
+// ============================================================================
+// about.astro
+// ----------------------------------------------------------------------------
+// Required trust page. Sites that monetize via AdSense/affiliate links
+// benefit from having a real "who runs this and how do they make money"
+// page — both for user trust and because Google's Helpful Content system
+// and human AdSense reviewers look for this kind of transparency.
+// ============================================================================
+import Layout from "../layouts/Layout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import { SITE } from "../lib/site";
+
+const title = `About — ${SITE.name}`;
+const description = `Learn about ${SITE.name}, our mission, and how we review and compare AI tools.`;
+---
+
+<Layout title={title} description={description} path="/about/">
+  <Breadcrumbs crumbs={[{ name: "Home", path: "/" }, { name: "About", path: "/about/" }]} />
+  <article class="mx-auto max-w-3xl px-5 py-10">
+    <h1 class="mb-6 text-3xl font-semibold text-neutral-950">About {SITE.name}</h1>
+    <div class="space-y-4 text-neutral-700">
+      <p>
+        {SITE.name} is an independent directory that helps people find, compare, and choose the
+        right AI tools for their needs — whether that's writing, image generation, coding, or
+        everyday productivity.
+      </p>
+      <p>
+        New AI tools launch constantly, and pricing, features, and free-tier limits change often.
+        We aim to keep our comparisons current, clearly labeled with a "last updated" date, and
+        based on publicly available information from each tool's official website and pricing page.
+      </p>
+      <h2 class="!mt-8 text-xl font-semibold text-neutral-950">How we make money</h2>
+      <p>
+        This site is supported by advertising (including Google AdSense) and affiliate
+        partnerships. Some links on this site are affiliate links, meaning we may earn a small
+        commission if you sign up through them, at no extra cost to you. This never affects which
+        tools we recommend or how we describe them. See our
+        <a href="/affiliate-disclosure/" class="text-neutral-950 underline underline-offset-2">Affiliate Disclosure</a>
+        for details.
+      </p>
+      <h2 class="!mt-8 text-xl font-semibold text-neutral-950">Contact</h2>
+      <p>
+        Questions, corrections, or partnership inquiries? Visit our
+        <a href="/contact/" class="text-neutral-950 underline underline-offset-2">Contact page</a>.
+      </p>
+    </div>
+  </article>
+</Layout>

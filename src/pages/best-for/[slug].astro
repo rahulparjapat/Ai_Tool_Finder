@@ -1,0 +1,71 @@
+---
+// ============================================================================
+// best-for/[slug].astro
+// ----------------------------------------------------------------------------
+// A single "Best AI Tools for [audience]" roundup page — one generated per
+// entry in src/data/use-cases.json. Unlike the /compare/ pages (which are
+// pure combinatorics), these are hand-picked lists written to match real
+// search demand researched for specific audiences (students, freelancers,
+// developers, etc).
+// ============================================================================
+import Layout from "../../layouts/Layout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ToolCard from "../../components/ToolCard.astro";
+import AdSlot from "../../components/AdSlot.astro";
+import AdsterraBanner from "../../components/AdsterraBanner.astro";
+import { useCases, toolsForUseCase } from "../../lib/data";
+import { SITE } from "../../lib/site";
+
+export function getStaticPaths() {
+  return useCases.map((useCase) => ({
+    params: { slug: useCase.slug },
+    props: { useCase },
+  }));
+}
+
+const { useCase } = Astro.props;
+const featuredTools = toolsForUseCase(useCase);
+
+const title = `${useCase.title} (2026) — ${SITE.name}`;
+const description = useCase.intro.slice(0, 155);
+
+// ItemList structured data, same pattern as the category pages — this is a
+// ranked list of named tools.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: useCase.title,
+  itemListElement: featuredTools.map((t, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: t.name,
+    url: new URL(`/tools/${t.slug}/`, SITE.url).toString(),
+  })),
+};
+---
+
+<Layout title={title} description={description} path={`/best-for/${useCase.slug}/`} jsonLd={jsonLd}>
+  <Breadcrumbs
+    crumbs={[
+      { name: "Home", path: "/" },
+      { name: "Best For", path: "/best-for/" },
+      { name: useCase.title, path: `/best-for/${useCase.slug}/` },
+    ]}
+  />
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h1 class="mb-4 text-3xl font-semibold text-neutral-950">{useCase.title} (2026)</h1>
+    <p class="mb-8 max-w-2xl text-neutral-600">{useCase.intro}</p>
+
+    <AdSlot slot="in-content" />
+
+    <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {featuredTools.map((t) => <ToolCard tool={t} />)}
+    </div>
+
+    <!-- End-of-page placement, after the reader has seen the full curated
+         list rather than interrupting it. -->
+    <div class="mt-10 flex justify-center">
+      <AdsterraBanner size="300x250" />
+    </div>
+  </section>
+</Layout>
